@@ -1,0 +1,156 @@
+{%- comment -%}
+  EXAMPLE MEGA MENU CONFIGURATION
+  
+  Copy this configuration and paste it into snippets/custom-mega-menu.liquid
+  Replace the case statement (around line 75)
+{%- endcomment -%}
+
+{%- case downcase_title -%}
+  
+  {%- comment -%}=== LIGHTING MEGA MENU ==={%- endcomment -%}
+  {%- when 'lighting' -%}
+    {%- comment -%}Upload your image to Shopify Files, then use the path{%- endcomment -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/lighting-featured.jpg' -%}
+    {%- assign promo_heading_1 = 'New LED Collection' -%}
+    {%- assign promo_text_1 = 'Energy-efficient lighting solutions for every space' -%}
+    {%- assign promo_link_1 = '/collections/new-led-collection' -%}
+    
+    {%- comment -%}Optional: Add a second promotional image{%- endcomment -%}
+    {%- assign promo_image_2 = 'shopify://shop_images/lighting-sale.jpg' -%}
+    {%- assign promo_heading_2 = 'Special Offer' -%}
+    {%- assign promo_text_2 = 'Up to 30% off selected items' -%}
+    {%- assign promo_link_2 = '/collections/lighting-sale' -%}
+    
+  {%- comment -%}=== FURNITURE MEGA MENU ==={%- endcomment -%}
+  {%- when 'furniture' -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/furniture-recliners.jpg' -%}
+    {%- assign promo_heading_1 = 'Premium Recliners' -%}
+    {%- assign promo_text_1 = 'Comfort meets style in our exclusive collection' -%}
+    {%- assign promo_link_1 = '/collections/premium-recliners' -%}
+    
+  {%- comment -%}=== BRANDS MEGA MENU ==={%- endcomment -%}
+  {%- when 'brands' -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/panasonic-featured.jpg' -%}
+    {%- assign promo_heading_1 = 'Panasonic Quality' -%}
+    {%- assign promo_text_1 = 'Trusted brand for home solutions' -%}
+    {%- assign promo_link_1 = '/collections/panasonic' -%}
+    
+  {%- comment -%}=== HOME IMPROVEMENT MEGA MENU ==={%- endcomment -%}
+  {%- when 'home improvement' -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/home-improvement.jpg' -%}
+    {%- assign promo_heading_1 = 'Complete Solutions' -%}
+    {%- assign promo_text_1 = 'Everything you need for your home' -%}
+    {%- assign promo_link_1 = '/collections/home-improvement' -%}
+    
+  {%- comment -%}=== PANASONIC MEGA MENU (Brand-specific) ==={%- endcomment -%}
+  {%- when 'panasonic' -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/panasonic-water-heater.jpg' -%}
+    {%- assign promo_heading_1 = 'Water Heaters' -%}
+    {%- assign promo_text_1 = 'Reliable and energy-efficient' -%}
+    {%- assign promo_link_1 = '/collections/panasonic-water-heater' -%}
+    
+    {%- assign promo_image_2 = 'shopify://shop_images/panasonic-ceiling-fan.jpg' -%}
+    {%- assign promo_heading_2 = 'Ceiling Fans' -%}
+    {%- assign promo_text_2 = 'Quiet and powerful ventilation' -%}
+    {%- assign promo_link_2 = '/collections/panasonic-ceiling-fan' -%}
+    
+  {%- comment -%}=== DUNLOPILLO MEGA MENU ==={%- endcomment -%}
+  {%- when 'dunlopillo' -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/dunlopillo-mattress.jpg' -%}
+    {%- assign promo_heading_1 = 'Premium Mattresses' -%}
+    {%- assign promo_text_1 = 'Sleep better, live better' -%}
+    {%- assign promo_link_1 = '/collections/dunlopillo-mattress' -%}
+    
+  {%- comment -%}=== ENDO LIGHTING MEGA MENU ==={%- endcomment -%}
+  {%- when 'endo' -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/endo-featured.jpg' -%}
+    {%- assign promo_heading_1 = 'Endo Lighting' -%}
+    {%- assign promo_text_1 = 'Professional lighting solutions' -%}
+    {%- assign promo_link_1 = '/collections/endolight' -%}
+    
+  {%- comment -%}=== SIGMA MEGA MENU ==={%- endcomment -%}
+  {%- when 'sigma' -%}
+    {%- assign promo_image_1 = 'shopify://shop_images/sigma-tracklight.jpg' -%}
+    {%- assign promo_heading_1 = 'Magnetic Track System' -%}
+    {%- assign promo_text_1 = 'Precision and versatility combined' -%}
+    {%- assign promo_link_1 = '/collections/sigma' -%}
+    
+{%- endcase -%}
+
+
+{%- comment -%}
+  ============================================================================
+  EXAMPLE SHOPIFY NAVIGATION STRUCTURE
+  ============================================================================
+  
+  Create these menus in Shopify Admin → Navigation → main-menu
+  
+  LIGHTING (Mega Menu)
+  ├─ Indoor Lighting
+  │  ├─ Downlights
+  │  │  ├─ 3 Watts
+  │  │  ├─ 5 Watts
+  │  │  ├─ 7.5 Watts
+  │  │  └─ 10 Watts
+  │  ├─ Panel Lights
+  │  ├─ Spotlights
+  │  └─ Track Lights
+  ├─ Outdoor Lighting
+  │  ├─ Wall Lights
+  │  ├─ Bollard Lights
+  │  ├─ Flood Lights
+  │  └─ Garden Lights
+  └─ Decorative Lighting
+     ├─ Chandeliers
+     ├─ Pendant Lights
+     ├─ Table Lamps
+     └─ Floor Lamps
+  
+  FURNITURE (Mega Menu)
+  ├─ Recliners
+  │  ├─ Leather Recliners
+  │  ├─ Fabric Recliners
+  │  └─ Massage Recliners
+  ├─ Bed Frames
+  │  ├─ Queen Size
+  │  ├─ King Size
+  │  └─ Single Size
+  └─ Mattresses
+     ├─ Memory Foam
+     ├─ Spring Mattress
+     └─ Latex Mattress
+  
+  BRANDS (Mega Menu)
+  ├─ Panasonic
+  │  ├─ Water Heaters
+  │  ├─ Ceiling Fans
+  │  └─ Ventilation
+  ├─ Dunlopillo
+  │  ├─ Mattresses
+  │  └─ Bed Frames
+  ├─ Endo
+  │  ├─ Downlights
+  │  ├─ Track Lights
+  │  └─ Spotlights
+  ├─ Sigma
+  │  ├─ Magnetic Track
+  │  └─ Smart Lighting
+  ├─ Stella
+  │  └─ Lighting Fixtures
+  └─ Astralux
+     └─ LED Solutions
+  
+  HOME IMPROVEMENT (Mega Menu)
+  ├─ Electrical
+  │  ├─ Switches
+  │  ├─ Sockets
+  │  └─ Circuit Breakers
+  ├─ Plumbing
+  │  ├─ Water Heaters
+  │  └─ Bidets
+  └─ Ventilation
+     ├─ Exhaust Fans
+     └─ Ceiling Fans
+  
+  ============================================================================
+{%- endcomment -%}
