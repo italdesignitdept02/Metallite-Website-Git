@@ -1,12 +1,13 @@
 {%- comment -%}
-CUSTOM MEGA MENU SYSTEM - HARDCODED VERSION
-This version allows you to define mega menus directly in code without Shopify admin blocks.
+IMPLEMENTATION NOTE ABOUT MEGA MENUS: in Warehouse, on desktop, we have two different menu styles: one style where the first level is always
+visible, and a second style where the menu is displayed after hitting the "Menu" button.
 
-To add a mega menu:
-1. Add the menu item name to the mega_menu_items list in custom-mega-menu.liquid
-2. Configure the promotional images in the case statement
-3. Create your menu structure in Shopify Navigation
+The mega menu logic is as a consequence quite difference: in the first style, the mega-menu is actually part of the second dropdown menu (as each level
+is displayed as a dropdown). However on the second style, the mega-menu is checked on the first level, as the first menu (which holds the mega-menu) is
+always visible.
 {%- endcomment -%}
+
+{%- assign mega_menus = section.blocks | map: 'settings' | map: 'menu_item' -%}
 
 {%- if section.settings.desktop_navigation_layout == 'condensed' -%}
   {%- assign is_floating = true -%}
@@ -14,55 +15,48 @@ To add a mega menu:
   {%- assign is_floating = false -%}
 {%- endif -%}
 
-{%- comment -%}
-  Check if this menu should be rendered as a mega menu
-  This is handled by the custom-mega-menu snippet
-{%- endcomment -%}
-
-{%- assign downcase_title = menu.title | downcase | strip -%}
-{%- assign mega_menu_items = 'lighting,furniture,brands,home improvement' | split: ',' -%}
 {%- assign is_mega_menu = false -%}
+{%- assign downcase_title = menu.title | downcase | strip -%}
 
-{%- for item in mega_menu_items -%}
-  {%- assign item_downcase = item | downcase | strip -%}
-  {%- if downcase_title == item_downcase -%}
+{%- for mega_menu in mega_menus -%}
+  {%- assign mega_menu_setting_downcase = mega_menu | downcase | strip -%}
+
+  {%- if mega_menu_setting_downcase == downcase_title -%}
     {%- assign is_mega_menu = true -%}
     {%- break -%}
   {%- endif -%}
 {%- endfor -%}
 
 {%- if is_floating == false and is_mega_menu -%}
-  {%- comment -%}Render custom mega menu{%- endcomment -%}
-  {%- render 'custom-mega-menu', mega_menu: menu, index: index, is_floating: is_floating -%}
+  {%- render 'mega-menu', is_floating: is_floating, mega_menu: menu, index: index -%}
 {%- else -%}
-  {%- comment -%}Render standard dropdown menu{%- endcomment -%}
-  <ul id="{{ index }}" class="nav-dropdown {% if is_floating %}nav-dropdown--floating nav-dropdown--fixed{% elsif menu.levels == 1 %}nav-dropdown--restrict{% endif %}" data-type="menu" aria-hidden="true" role="list">
+  <ul id="{{ index }}" class="nav-dropdown {% if is_floating %}nav-dropdown--floating {% if mega_menus.size > 0 %}nav-dropdown--fixed {% endif %}{% elsif menu.levels == 1 %}nav-dropdown--restrict{% endif %}" data-type="menu" aria-hidden="true" role="list">
     {%- if is_floating -%}
       {%- render 'icon', icon: 'nav-triangle-borderless' -%}
     {%- endif -%}
 
     {%- for link in menu.links -%}
-      {%- comment -%}Check if this sub-item should be a mega menu{%- endcomment -%}
-      {%- assign is_sub_mega_menu = false -%}
-      {%- assign downcase_link_title = link.title | downcase | strip -%}
+      {%- assign is_mega_menu = false -%}
+      {%- assign downcase_title = link.title | downcase | strip -%}
 
-      {%- for item in mega_menu_items -%}
-        {%- assign item_downcase = item | downcase | strip -%}
-        {%- if downcase_link_title == item_downcase -%}
-          {%- assign is_sub_mega_menu = true -%}
+      {%- for mega_menu in mega_menus -%}
+        {%- assign mega_menu_setting_downcase = mega_menu | downcase | strip -%}
+
+        {%- if mega_menu_setting_downcase == downcase_title -%}
+          {%- assign is_mega_menu = true -%}
           {%- break -%}
         {%- endif -%}
       {%- endfor -%}
 
-      <li class="nav-dropdown__item {% if is_sub_mega_menu %}has-mega-menu{% endif %}">
+      <li class="nav-dropdown__item {% if is_mega_menu %}has-mega-menu{% endif %}">
         {%- if link.links.size == 0 -%}
           <a href="{{ link.url }}" class="nav-dropdown__link link" data-type="menuitem">{{ link.title }}</a>
         {%- else -%}
           {%- capture index_nested -%}{{ index }}-{% increment nav_dropdown %}{%- endcapture -%}
           <a href="{{ link.url }}" class="nav-dropdown__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index_nested }}" aria-haspopup="true">{{- link.title -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
 
-          {%- if is_sub_mega_menu -%}
-            {%- render 'custom-mega-menu', mega_menu: link, index: index_nested, is_floating: is_floating -%}
+          {%- if is_mega_menu -%}
+            {%- render 'mega-menu', is_floating: is_floating, mega_menu: link, index: index_nested -%}
           {%- else -%}
             <ul id="{{ index_nested }}" class="nav-dropdown {% if is_floating %}nav-dropdown--floating{% endif %}" data-type="menu" aria-hidden="true" role="list">
               {%- render 'icon', icon: 'nav-triangle-left' -%}
