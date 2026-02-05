@@ -9,8 +9,7 @@
         <ul class="mobile-menu__nav" data-type="menu" role="list">
           {%- for link in menu.links -%}
             <li class="mobile-menu__nav-item">
-              {%- assign side_downcase_title = link.title | downcase -%}
-              {%- if link.links != blank or side_downcase_title contains 'brand' -%}
+              {%- if link.links != blank -%}
                 {%- capture panel_id -%}mobile-panel-{{ forloop.index0 }}{%- endcapture -%}
 
                 <button class="mobile-menu__nav-link" data-type="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="{{ panel_id }}" data-action="open-panel">
@@ -58,8 +57,7 @@
     {%- comment -%}We now need to loop again (for the second level) to create the nested panel{%- endcomment -%}
 
     {%- for link in menu.links -%}
-      {%- assign side_downcase_title = link.title | downcase -%}
-      {%- if link.links != blank or side_downcase_title contains 'brand' -%}
+      {%- if link.links != blank -%}
         {%- capture panel_id -%}mobile-panel-{{ forloop.index0 }}{%- endcapture -%}
 
         <div id="{{ panel_id }}" class="mobile-menu__panel is-nested">
@@ -171,18 +169,6 @@
                   </div>
                 {%- endif -%}
               {%- endif -%}
-            {%- elsif side_downcase_title contains 'brand' -%}
-              <ul class="mobile-menu__nav" data-type="menu" role="list">
-                <li class="mobile-menu__nav-item">
-                  <a href="{{ link.url }}" class="mobile-menu__nav-link text--strong">{{ link.title }}</a>
-                </li>
-                {%- assign brands_list = "Panasonic,Sigma,Endolight,Astralux,T&J Orbik,Stella,Ledvance,Ital Design,Hooga,Dunlopillo,Osram" | split: ',' -%}
-                {%- for brand in brands_list -%}
-                  <li class="mobile-menu__nav-item">
-                    <a href="/collections/{{ brand | handle }}" class="mobile-menu__nav-link" data-type="menuitem">{{ brand }}</a>
-                  </li>
-                {%- endfor -%}
-              </ul>
             {%- else -%}
               <ul class="mobile-menu__nav" data-type="menu" role="list">
                 <li class="mobile-menu__nav-item">
