@@ -48,8 +48,13 @@ always visible.
         {%- endif -%}
       {%- endfor -%}
 
+      {%- assign is_brand_link = false -%}
+      {%- if downcase_title contains 'brand' -%}
+        {%- assign is_brand_link = true -%}
+      {%- endif -%}
+
       <li class="nav-dropdown__item {% if is_mega_menu %}has-mega-menu{% endif %}">
-        {%- if link.links.size == 0 -%}
+        {%- if link.links.size == 0 and is_brand_link == false -%}
           <a href="{{ link.url }}" class="nav-dropdown__link link" data-type="menuitem">{{ link.title }}</a>
         {%- else -%}
           {%- capture index_nested -%}{{ index }}-{% increment nav_dropdown %}{%- endcapture -%}
@@ -57,6 +62,8 @@ always visible.
 
           {%- if is_mega_menu -%}
             {%- render 'mega-menu', is_floating: is_floating, mega_menu: link, index: index_nested -%}
+          {%- elsif is_brand_link -%}
+            {%- render 'mega-menu-brands', index: index_nested, is_floating: is_floating -%}
           {%- else -%}
             <ul id="{{ index_nested }}" class="nav-dropdown {% if is_floating %}nav-dropdown--floating{% endif %}" data-type="menu" aria-hidden="true" role="list">
               {%- render 'icon', icon: 'nav-triangle-left' -%}

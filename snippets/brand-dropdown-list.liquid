@@ -1,0 +1,20 @@
+{%- comment -%}
+  This snippet renders a list of brands for the "Shop by Brands" menu item.
+  It can be included in either mega menus or standard dropdowns.
+{%- endcomment -%}
+
+{%- assign brands_list = "Panasonic,Sigma,Endolight,Astralux,T&J Orbik,Stella,Ledvance,Ital Design,Hooga,Dunlopillo,Osram" | split: ',' -%}
+
+<ul class="mega-menu__linklist" role="list">
+  {%- for brand in brands_list -%}
+    {%- assign brand_handle = brand | handle -%}
+    <li class="mega-menu__item">
+      <a href="/collections/{{ brand_handle }}" class="mega-menu__link link">{{ brand }}</a>
+    </li>
+  {%- endfor -%}
+  
+  {%- comment -%} Optional: Link to a 'All Brands' page if it exists {%- endcomment -%}
+  <li class="mega-menu__item">
+    <a href="/collections" class="mega-menu__link link text--strong">View All Brands</a>
+  </li>
+</ul>

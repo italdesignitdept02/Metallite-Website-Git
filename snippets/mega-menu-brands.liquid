@@ -1,0 +1,27 @@
+{%- if section.settings.desktop_navigation_layout == 'condensed' -%}
+  {%- assign is_condensed = true -%}
+{%- else -%}
+  {%- assign is_condensed = false -%}
+{%- endif -%}
+
+<div id="{{ index }}" class="mega-menu {% if is_floating %}mega-menu--floating{% endif %}" data-type="menu" aria-hidden="true" role="list">
+  <div class="container">
+    <div class="mega-menu__inner">
+      <div class="mega-menu__column">
+        <span class="mega-menu__title heading">Shop by Brands</span>
+        {%- render 'brand-dropdown-list' -%}
+      </div>
+      
+      {%- comment -%} Add a featured brand promo box to make it "Wow" {%- endcomment -%}
+      <div class="mega-menu__promo">
+        <div class="mega-menu__image-wrapper">
+          <div class="aspect-ratio" style="padding-bottom: 66.66%">
+            <img class="lazyload image--fade-in" data-src="https://cdn.shopify.com/s/files/1/0815/9998/1875/files/logo.png?v=1706853600" alt="Metal-lite Brands">
+          </div>
+        </div>
+        <span class="mega-menu__image-heading heading h4">Premium Brands</span>
+        <p class="mega-menu__image-text">Discover our curated collection of world-class lighting and home brands.</p>
+      </div>
+    </div>
+  </div>
+</div>
