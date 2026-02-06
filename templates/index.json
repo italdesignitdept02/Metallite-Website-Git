@@ -498,7 +498,7 @@
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
             "button_text": "",
-            "link": "shopify://collections/endolight"
+            "link": "shopify://collections/endo"
           }
         },
         "16311683371c9ddf67-1": {
@@ -566,7 +566,7 @@
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
             "button_text": "",
-            "link": "shopify://collections/endolight"
+            "link": "shopify://collections/endo"
           }
         }
       },
@@ -741,7 +741,7 @@
     "collection_with_image_tCVGhL": {
       "type": "collection-with-image",
       "settings": {
-        "collection": "dunlopillo",
+        "collection": "bed-frame",
         "products_count": 12,
         "show_quick_buy": false,
         "image": "shopify://shop_images/Y9285_OTTOMAN_7.jpg",
