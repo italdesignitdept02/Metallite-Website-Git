@@ -441,7 +441,7 @@
     "163116793755651209": {
       "type": "collection-with-image",
       "settings": {
-        "collection": "water-heater",
+        "collection": "water-heaters",
         "products_count": 12,
         "show_quick_buy": true,
         "image": "shopify://shop_images/Panasonic_A_2.jpg",
@@ -458,7 +458,7 @@
     "collection_with_image_wGrgTq": {
       "type": "collection-with-image",
       "settings": {
-        "collection": "ceiling-fan",
+        "collection": "ceiling-fans",
         "products_count": 12,
         "show_quick_buy": false,
         "image": "shopify://shop_images/Panasonic_F-60UFN_1_7ddb9783-d0c2-46eb-8f66-1ffd71497f87.png",
