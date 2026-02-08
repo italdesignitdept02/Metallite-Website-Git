@@ -346,6 +346,7 @@
     },
     "16311662914eeb784b": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "new-collection",
         "title": "New Collection",
@@ -416,6 +417,7 @@
         "1631169409027cb4d1-3",
         "store_pickup_HGbMNg"
       ],
+      "disabled": true,
       "settings": {
         "product": "desmond-bed-frame",
         "title": "Bedframe",
@@ -668,6 +670,7 @@
     },
     "056261b1-7763-421b-b11a-3dbdf05710f7": {
       "type": "image-with-text",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Mokker_1_68b31766-57e4-4b0f-b4f9-268e987091f4.png",
         "image_position": "right",
@@ -740,6 +743,7 @@
     },
     "collection_with_image_tCVGhL": {
       "type": "collection-with-image",
+      "disabled": true,
       "settings": {
         "collection": "bed-frame",
         "products_count": 12,
