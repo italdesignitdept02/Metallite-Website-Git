@@ -247,7 +247,6 @@
           "type": "collection",
           "settings": {
             "collection": "pendant-lamps",
-            "image": "shopify://shop_images/Artboard1-21.png",
             "link": "shopify://collections/pendant-lamps"
           }
         },
@@ -255,7 +254,6 @@
           "type": "collection",
           "settings": {
             "collection": "home-appliances",
-            "image": "shopify://shop_images/F-80ZBR_WATERMARKFORSHOPIFY.png",
             "link": "shopify://collections/home-appliances"
           }
         },
@@ -271,7 +269,6 @@
           "type": "collection",
           "settings": {
             "collection": "flood-lights",
-            "image": "shopify://shop_images/Untitled-1_abac183c-474b-48fa-9768-762b10a10b8e.png",
             "link": "shopify://collections/flood-lights"
           }
         },
@@ -311,7 +308,6 @@
           "type": "collection",
           "settings": {
             "collection": "architectural-lighting",
-            "image": "shopify://shop_images/STH20971PTO-ARCHISURFACE.png",
             "link": "shopify://collections/architectural-lighting"
           }
         },
@@ -454,7 +450,7 @@
         "button_background": "#ff6128",
         "button_text_color": "#ffffff",
         "button_text": "View All",
-        "button_link": "shopify://collections/panasonic"
+        "button_link": "shopify://collections/water-heaters"
       }
     },
     "collection_with_image_wGrgTq": {
@@ -471,7 +467,7 @@
         "button_background": "#ffffff",
         "button_text_color": "#0774d7",
         "button_text": "Learn more",
-        "button_link": "shopify://collections/ceiling-fan"
+        "button_link": "shopify://collections/ceiling-fans"
       }
     },
     "2b949eab-7345-4cdd-8ac3-5c945b99e2c4": {
