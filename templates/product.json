@@ -32,6 +32,13 @@
             "low_inventory_threshold": 0
           }
         },
+        "variant_description_6arYXA": {
+          "type": "variant_description",
+          "settings": {
+            "title": "Variant Details",
+            "display_mode": "show_all"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -40,14 +47,8 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
-            "display_mode": "show_all"
-          }
-        },
-        "variant_description_6arYXA": {
-          "type": "variant_description",
-          "settings": {
-            "title": "Variant Details",
             "display_mode": "show_all"
           }
         }
@@ -55,9 +56,9 @@
       "block_order": [
         "product_meta",
         "variant_selector",
+        "variant_description_6arYXA",
         "buy_buttons",
-        "description",
-        "variant_description_6arYXA"
+        "description"
       ],
       "settings": {
         "image_size": "small",
