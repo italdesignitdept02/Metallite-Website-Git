@@ -119,39 +119,6 @@
                     </div>
                   </div>
                 {%- endif -%}
-              
-              {%- when 'variant_description' -%}
-                {%- assign variant_desc = selected_variant.metafields.custom.variant_description.value | default: selected_variant.metafields.custom.variant_description -%}
-                {%- assign variant_desc_stripped = variant_desc | strip_html | strip -%}
-
-                <div class="product-block-list__item product-block-list__item--variant-description {% if variant_desc_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
-                  <div class="card">
-                    {%- if block.settings.display_mode == 'collapse' -%}
-                      <button class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                        <span class="card__title heading h3">{{ block.settings.title | escape }}</span>
-                        <span class="plus-button plus-button--large"></span>
-                      </button>
-
-                      <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
-                        <div class="card__collapsible-content">
-                          <div class="rte product-meta__variant-description-content">
-                            {{ variant_desc }}
-                          </div>
-                        </div>
-                      </div>
-                    {%- else -%}
-                      <div class="card__header">
-                        <h2 class="card__title heading h3">{{ block.settings.title | escape }}</h2>
-                      </div>
-
-                      <div class="card__section">
-                        <div class="rte product-meta__variant-description-content">
-                          {{ variant_desc }}
-                        </div>
-                      </div>
-                    {%- endif -%}
-                  </div>
-                </div>
 
               {%- when 'content' -%}
                 {%- comment -%}
