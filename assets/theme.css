@@ -13806,22 +13806,3 @@ shopify-payment-terms {
 .product-meta__variant-description-container.is-hidden { display: none !important; }
 .product-meta__variant-description-content { line-height: 1.6; font-size: 0.95em; }
 
-/* Two-Column Layout for Description and Variant Details */
-@media screen and (min-width: 1000px) {
-  .product-block-list__wrapper { display: flex; flex-wrap: wrap; margin: -10px; }
-  .product-block-list__item { flex: 1 1 100%; padding: 10px; }
-  .product-block-list__item--description,
-  .product-block-list__item--variant-description { flex: 1 1 calc(50% - 20px); }
-  .product-block-list__item--description .card,
-  .product-block-list__item--variant-description .card { height: 100%; }
-}
-
-/* Force 2-Column for Description blocks */
-@media screen and (min-width: 1000px) {
-  .product-block-list__wrapper { display: grid !important; grid-template-columns: repeat(2, 1fr); grid-gap: 30px; }
-  .product-block-list__item { grid-column: span 2; } /* Most things stay full width */
-  .product-block-list__item--gallery { grid-column: span 1; }
-  .product-block-list__item--info { grid-column: span 1; }
-  .product-block-list__item--description,
-  .product-block-list__item--variant-description { grid-column: span 1 !important; }
-}
