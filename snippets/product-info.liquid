@@ -1,6 +1,44 @@
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 {%- assign product_form_id = 'product_form_' | append: section.id | append: product.id -%}
 
+<style>
+  .product-meta__variant-description-container {
+    margin: 20px 0;
+    padding: 18px;
+    background: #fcfcfc;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  .product-meta__variant-description-title {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 11px;
+    color: #666;
+  }
+  .product-meta__variant-description-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+  }
+  .product-meta__variant-description-container.is-hidden {
+    display: none !important;
+  }
+  .product-meta__variant-description-content {
+    line-height: 1.6;
+    font-size: 0.95em;
+  }
+</style>
+
 <div class="card {% if product.media.size > 0 %}card--collapsed{% endif %} {% if template.name == 'product' %}card--sticky{% endif %}">
   {%- if section.settings.enable_image_zoom -%}
     <div id="product-zoom-{{ section.id }}" class="product__zoom-wrapper"></div>
@@ -20,45 +58,6 @@
             {%- assign variant_desc = selected_variant.metafields.custom.variant_description -%}
             {%- assign variant_desc_stripped = variant_desc | strip_html | strip -%}
             
-            <style>
-              /* ... (styles remain the same) ... */
-              .product-meta__variant-description-container {
-                margin: 20px 0;
-                padding: 18px;
-                background: #fcfcfc;
-                border: 1px solid #e5e5e5;
-                border-radius: 4px;
-                transition: all 0.3s ease;
-              }
-              .product-meta__variant-description-title {
-                display: block;
-                margin-bottom: 12px;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                font-size: 11px;
-                color: #666;
-              }
-              .product-meta__variant-description-button {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                background: none;
-                border: none;
-                padding: 0;
-                cursor: pointer;
-                text-align: left;
-              }
-              .product-meta__variant-description-container.is-hidden {
-                display: none !important;
-              }
-              .product-meta__variant-description-content {
-                line-height: 1.6;
-                font-size: 0.95em;
-              }
-            </style>
-
             <div class="product-meta__variant-description-container {% if variant_desc_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.display_mode == 'collapse' -%}
                 <button class="product-meta__variant-description-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="variant-desc-{{ section.id }}-{{ block.id }}">
@@ -161,7 +160,12 @@
     {
       "product": {{ product | json }},
       "options_with_values": {{ product.options_with_values | json }},
-      "selected_variant_id": {{ selected_variant.id }}
+      "selected_variant_id": {{ selected_variant.id }},
+      "variant_descriptions": {
+        {%- for variant in product.variants -%}
+          "{{ variant.id }}": {{ variant.metafields.custom.variant_description | json }}{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      }
       {%- if variant_selector_block.settings.show_inventory_quantity -%}
         ,"inventories": {
           {%- for variant in product.variants -%}
@@ -192,8 +196,7 @@
               "inventory_management": {{ variant.inventory_management | json }},
               "inventory_policy": {{ variant.inventory_policy | json }},
               "inventory_quantity": {{ variant.inventory_quantity | json }},
-              "inventory_message": {{ inventory_message | json }},
-              "variant_description": {{ variant.metafields.custom.variant_description | json }}
+              "inventory_message": {{ inventory_message | json }}
             }{% unless forloop.last %},{% endunless %}
           {%- endfor -%}
         }
@@ -211,16 +214,16 @@
         const productJson = document.querySelector('[data-product-json]');
         if (productJson && variant) {
            const productData = JSON.parse(productJson.textContent);
-           const variantData = productData.inventories ? productData.inventories[variant.id] : null;
+           const variantDescription = productData.variant_descriptions ? productData.variant_descriptions[variant.id] : null;
            
-           if (variantData && variantData.variant_description) {
+           if (variantDescription) {
              const tempDiv = document.createElement('div');
-             tempDiv.innerHTML = variantData.variant_description;
+             tempDiv.innerHTML = variantDescription;
              const strippedContent = tempDiv.textContent || tempDiv.innerText || "";
              
              if (strippedContent.trim() !== "") {
                contentAreas.forEach(area => {
-                 area.innerHTML = variantData.variant_description;
+                 area.innerHTML = variantDescription;
                });
                container.classList.remove('is-hidden');
              } else {
