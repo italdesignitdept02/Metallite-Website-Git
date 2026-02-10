@@ -13799,3 +13799,9 @@ shopify-payment-terms {
     min-width: 0;
   }
 }
+/* Variant Description Styles */
+.product-meta__variant-description-container { margin: 20px 0; padding: 18px; background: #fcfcfc; border: 1px solid #e5e5e5; border-radius: 4px; transition: all 0.3s ease; }
+.product-meta__variant-description-title { display: block; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; color: #666; }
+.product-meta__variant-description-button { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
+.product-meta__variant-description-container.is-hidden { display: none !important; }
+.product-meta__variant-description-content { line-height: 1.6; font-size: 0.95em; }
