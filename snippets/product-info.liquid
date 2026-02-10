@@ -17,8 +17,71 @@
             {%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
           {%- when 'variant_description' -%}
-            <div class="product-meta__variant-description rte" {{ block.shopify_attributes }}>
-              {{ selected_variant.metafields.custom.variant_description }}
+            {%- assign variant_desc = selected_variant.metafields.custom.variant_description -%}
+            {%- assign variant_desc_stripped = variant_desc | strip_html | strip -%}
+            
+            <style>
+              /* ... (styles remain the same) ... */
+              .product-meta__variant-description-container {
+                margin: 20px 0;
+                padding: 18px;
+                background: #fcfcfc;
+                border: 1px solid #e5e5e5;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+              }
+              .product-meta__variant-description-title {
+                display: block;
+                margin-bottom: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-size: 11px;
+                color: #666;
+              }
+              .product-meta__variant-description-button {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                text-align: left;
+              }
+              .product-meta__variant-description-container.is-hidden {
+                display: none !important;
+              }
+              .product-meta__variant-description-content {
+                line-height: 1.6;
+                font-size: 0.95em;
+              }
+            </style>
+
+            <div class="product-meta__variant-description-container {% if variant_desc_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
+              {%- if block.settings.display_mode == 'collapse' -%}
+                <button class="product-meta__variant-description-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="variant-desc-{{ section.id }}-{{ block.id }}">
+                  <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>
+                  <span class="plus-button"></span>
+                </button>
+
+                <div id="variant-desc-{{ section.id }}-{{ block.id }}" class="card__collapsible">
+                  <div class="card__collapsible-content">
+                    <div class="product-meta__variant-description-content rte">
+                      {{ variant_desc }}
+                    </div>
+                  </div>
+                </div>
+              {%- else -%}
+                {%- if block.settings.title != blank -%}
+                  <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>
+                {%- endif -%}
+
+                <div class="product-meta__variant-description-content rte">
+                  {{ variant_desc }}
+                </div>
+              {%- endif -%}
             </div>
 
           {%- when 'buy_buttons' -%}
@@ -141,22 +204,33 @@
   <script>
     document.addEventListener('variant:changed', function(event) {
       const variant = event.detail.variant;
-      const container = document.querySelector('.product-meta__variant-description');
+      const container = document.querySelector('.product-meta__variant-description-container');
+      const contentAreas = document.querySelectorAll('.product-meta__variant-description-content');
 
-      if (container && variant) {
-        // We get the data from the product JSON which we already augmented
+      if (container) {
         const productJson = document.querySelector('[data-product-json]');
-        if (productJson) {
+        if (productJson && variant) {
            const productData = JSON.parse(productJson.textContent);
            const variantData = productData.inventories ? productData.inventories[variant.id] : null;
            
            if (variantData && variantData.variant_description) {
-             container.innerHTML = variantData.variant_description;
-             container.style.display = '';
+             const tempDiv = document.createElement('div');
+             tempDiv.innerHTML = variantData.variant_description;
+             const strippedContent = tempDiv.textContent || tempDiv.innerText || "";
+             
+             if (strippedContent.trim() !== "") {
+               contentAreas.forEach(area => {
+                 area.innerHTML = variantData.variant_description;
+               });
+               container.classList.remove('is-hidden');
+             } else {
+               container.classList.add('is-hidden');
+             }
            } else {
-             container.innerHTML = '';
-             container.style.display = 'none';
+             container.classList.add('is-hidden');
            }
+        } else {
+           container.classList.add('is-hidden');
         }
       }
     });
