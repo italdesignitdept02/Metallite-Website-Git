@@ -38,6 +38,10 @@
             "show_payment_button": true
           }
         },
+        "variant_description_6arYXA": {
+          "type": "variant_description",
+          "settings": {}
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -49,6 +53,7 @@
         "product_meta",
         "variant_selector",
         "buy_buttons",
+        "variant_description_6arYXA",
         "description"
       ],
       "settings": {
