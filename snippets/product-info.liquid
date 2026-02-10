@@ -55,7 +55,7 @@
             {%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
           {%- when 'variant_description' -%}
-            {%- assign variant_desc = selected_variant.metafields.custom.variant_description -%}
+            {%- assign variant_desc = selected_variant.metafields.custom.variant_description.value | default: selected_variant.metafields.custom.variant_description -%}
             {%- assign variant_desc_stripped = variant_desc | strip_html | strip -%}
             
             <div class="product-meta__variant-description-container {% if variant_desc_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
@@ -163,7 +163,7 @@
       "selected_variant_id": {{ selected_variant.id }},
       "variant_descriptions": {
         {%- for variant in product.variants -%}
-          "{{ variant.id }}": {{ variant.metafields.custom.variant_description | json }}{% unless forloop.last %},{% endunless %}
+          "{{ variant.id }}": {{ variant.metafields.custom.variant_description.value | default: variant.metafields.custom.variant_description | json }}{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
       }
       {%- if variant_selector_block.settings.show_inventory_quantity -%}
