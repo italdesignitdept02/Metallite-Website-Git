@@ -47,7 +47,6 @@
         },
         "description": {
           "type": "description",
-          "disabled": true,
           "settings": {
             "display_mode": "show_all"
           }
