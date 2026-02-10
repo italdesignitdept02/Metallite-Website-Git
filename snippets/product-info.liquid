@@ -22,7 +22,7 @@
             {%- assign variant_desc = selected_variant.metafields.custom.variant_description.value | default: selected_variant.metafields.custom.variant_description -%}
             {%- assign variant_desc_stripped = variant_desc | strip_html | strip -%}
             
-            <div class="product-meta__variant-description-container {% if variant_desc_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
+            <div class="product-meta__variant-description-container {% if variant_desc_stripped == blank or product.has_only_default_variant %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.display_mode == 'collapse' -%}
                 <button class="product-meta__variant-description-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="variant-desc-{{ section.id }}-{{ block.id }}">
                   <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>

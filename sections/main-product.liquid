@@ -82,7 +82,7 @@
               {%- endcomment -%}
 
               {%- when 'description' -%}
-                {%- if product.description != blank -%}
+                {%- if product.description != blank and product.has_only_default_variant == false -%}
                   <div class="product-block-list__item product-block-list__item--description" {{ block.shopify_attributes }}>
                     <div class="card">
                       {%- if block.settings.display_mode == 'collapse' -%}
@@ -114,6 +114,41 @@
                               <span class="expandable-content__toggle-text" data-view-more="{{ 'product.general.view_more' | t | escape }}" data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
                             </button>
                           {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+
+              {%- when 'variant_description' -%}
+                {%- assign variant_desc = product.selected_or_first_available_variant.metafields.custom.variant_description.value | default: product.selected_or_first_available_variant.metafields.custom.variant_description -%}
+                {%- assign variant_desc_stripped = variant_desc | strip_html | strip -%}
+
+                {%- if variant_desc_stripped != blank and product.has_only_default_variant -%}
+                  <div class="product-block-list__item product-block-list__item--description" {{ block.shopify_attributes }}>
+                    <div class="card">
+                      {%- if block.settings.display_mode == 'collapse' -%}
+                        <button class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
+                          <span class="card__title heading h3">{{ block.settings.title | escape }}</span>
+                          <span class="plus-button plus-button--large"></span>
+                        </button>
+
+                        <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
+                          <div class="card__collapsible-content">
+                            <div class="rte text--pull">
+                              {{ variant_desc }}
+                            </div>
+                          </div>
+                        </div>
+                      {%- else -%}
+                        <div class="card__header">
+                          <h2 class="card__title heading h3">{{ block.settings.title | escape }}</h2>
+                        </div>
+
+                        <div class="card__section">
+                          <div class="rte text--pull">
+                            {{ variant_desc }}
+                          </div>
                         </div>
                       {%- endif -%}
                     </div>
