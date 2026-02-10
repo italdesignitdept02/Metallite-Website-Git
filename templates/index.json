@@ -889,6 +889,14 @@
         "show_excerpt": false,
         "stack_mobile": true
       }
+    },
+    "custom_html_ba4yWY": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "title": "",
+        "html": "<section class=\"metallite-trust\">\n  <div class=\"metallite-container\">\n\n    <header class=\"metallite-header\">\n      <h2>Trusted Lighting &amp; Home Improvement Solutions in the Philippines</h2>\n      <p>\n        Metal-Lite is your reliable source for premium lighting fixtures and home improvement products.\n        We partner with globally recognized brands to deliver quality, durability, and modern design\n        for residential and commercial spaces.\n      </p>\n    </header>\n\n    <div class=\"metallite-features\">\n      <article class=\"feature\">\n        <h3>Authorized Partner Brands</h3>\n        <p>\n          We carry authentic products from trusted brands such as Panasonic, LEDVANCE, ENDO Lighting,\n          Astralux, and more—ensuring performance, safety, and long-term value.\n        </p>\n      </article>\n\n      <article class=\"feature\">\n        <h3>Ideal for Homes &amp; Businesses</h3>\n        <p>\n          From elegant residential lighting to heavy-duty commercial solutions, our curated collections\n          are designed for contractors, designers, and homeowners alike.\n        </p>\n      </article>\n\n      <article class=\"feature\">\n        <h3>Local Showrooms &amp; Expert Support</h3>\n        <p>\n          Visit our showrooms or shop online with confidence. Our team is ready to assist you with\n          product selection, technical questions, and after-sales support.\n        </p>\n      </article>\n    </div>\n\n  </div>\n</section>\n\n<style>\n.metallite-trust {\n  background: #f7f7f7;\n  padding: 60px 20px;\n  font-family: inherit;\n}\n\n.metallite-container {\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.metallite-header h2 {\n  color: #111;\n  font-size: 28px;\n  margin-bottom: 12px;\n  font-weight: 700;\n}\n\n.metallite-header p {\n  color: #555;\n  max-width: 820px;\n  line-height: 1.7;\n  margin-bottom: 40px;\n}\n\n.metallite-features {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));\n  gap: 24px;\n}\n\n.feature {\n  background: #ffffff;\n  border: 1px solid #e5e5e5;\n  padding: 24px;\n  border-radius: 6px;\n}\n\n.feature h3 {\n  color: #ff6a00;\n  font-size: 18px;\n  margin-bottom: 10px;\n  font-weight: 600;\n}\n\n.feature p {\n  color: #444;\n  line-height: 1.6;\n  font-size: 15px;\n}\n</style>"
+      }
     }
   },
   "order": [
@@ -913,6 +921,7 @@
     "16306408232393b1a9",
     "collection_with_image_tCVGhL",
     "16311694785e1625af",
-    "1631169120f336cec3"
+    "1631169120f336cec3",
+    "custom_html_ba4yWY"
   ]
 }
