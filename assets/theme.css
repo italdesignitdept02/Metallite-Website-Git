@@ -13805,3 +13805,13 @@ shopify-payment-terms {
 .product-meta__variant-description-button { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
 .product-meta__variant-description-container.is-hidden { display: none !important; }
 .product-meta__variant-description-content { line-height: 1.6; font-size: 0.95em; }
+
+/* Two-Column Layout for Description and Variant Details */
+@media screen and (min-width: 1000px) {
+  .product-block-list__wrapper { display: flex; flex-wrap: wrap; margin: -10px; }
+  .product-block-list__item { flex: 1 1 100%; padding: 10px; }
+  .product-block-list__item--description,
+  .product-block-list__item--variant-description { flex: 1 1 calc(50% - 20px); }
+  .product-block-list__item--description .card,
+  .product-block-list__item--variant-description .card { height: 100%; }
+}
