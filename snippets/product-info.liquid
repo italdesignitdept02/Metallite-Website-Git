@@ -18,6 +18,35 @@
           {%- when 'variant_selector' -%}
             {%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
+          {%- when 'dimensions' -%}
+            {%- assign dim_val = selected_variant.metafields.custom.dimention_specification.value | default: selected_variant.metafields.custom.dimention_specification | default: product.metafields.custom.dimention_specification.value | default: product.metafields.custom.dimention_specification -%}
+            {%- assign dim_stripped = dim_val | strip_html | strip -%}
+            
+            <div class="product-meta__dimensions-container {% if dim_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
+              {%- if block.settings.display_mode == 'collapse' -%}
+                <button class="product-meta__variant-description-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="dimensions-{{ section.id }}-{{ block.id }}">
+                  <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>
+                  <span class="plus-button"></span>
+                </button>
+
+                <div id="dimensions-{{ section.id }}-{{ block.id }}" class="card__collapsible">
+                  <div class="card__collapsible-content">
+                    <div class="product-meta__dimensions-content rte">
+                      {{ dim_val | newline_to_br }}
+                    </div>
+                  </div>
+                </div>
+              {%- else -%}
+                {%- if block.settings.title != blank -%}
+                  <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>
+                {%- endif -%}
+
+                <div class="product-meta__dimensions-content rte">
+                  {{ dim_val | newline_to_br }}
+                </div>
+              {%- endif -%}
+            </div>
+
           {%- when 'variant_description' -%}
             {%- assign variant_desc = selected_variant.metafields.custom.variant_description.value | default: selected_variant.metafields.custom.variant_description -%}
             {%- assign variant_desc_stripped = variant_desc | strip_html | strip -%}
@@ -129,7 +158,13 @@
         {%- for variant in product.variants -%}
           "{{ variant.id }}": {{ variant.metafields.custom.variant_description.value | default: variant.metafields.custom.variant_description | json }}{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
-      }
+      },
+      "variant_dimensions": {
+        {%- for variant in product.variants -%}
+          "{{ variant.id }}": {{ variant.metafields.custom.dimention_specification.value | default: variant.metafields.custom.dimention_specification | json }}{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      },
+      "product_dimensions": {{ product.metafields.custom.dimention_specification.value | default: product.metafields.custom.dimention_specification | json }}
       {%- if variant_selector_block.settings.show_inventory_quantity -%}
         ,"inventories": {
           {%- for variant in product.variants -%}
@@ -171,33 +206,45 @@
   <script>
     document.addEventListener('variant:changed', function(event) {
       const variant = event.detail.variant;
-      const container = document.querySelector('.product-meta__variant-description-container');
-      const contentAreas = document.querySelectorAll('.product-meta__variant-description-content');
+      const descContainer = document.querySelector('.product-meta__variant-description-container');
+      const descContents = document.querySelectorAll('.product-meta__variant-description-content');
+      
+      const dimContainer = document.querySelector('.product-meta__dimensions-container');
+      const dimContents = document.querySelectorAll('.product-meta__dimensions-content');
 
-      if (container) {
-        const productJson = document.querySelector('[data-product-json]');
-        if (productJson && variant) {
-           const productData = JSON.parse(productJson.textContent);
-           const variantDescription = productData.variant_descriptions ? productData.variant_descriptions[variant.id] : null;
-           
-           if (variantDescription) {
-             const tempDiv = document.createElement('div');
-             tempDiv.innerHTML = variantDescription;
-             const strippedContent = tempDiv.textContent || tempDiv.innerText || "";
-             
-             if (strippedContent.trim() !== "") {
-               contentAreas.forEach(area => {
-                 area.innerHTML = variantDescription;
-               });
-               container.classList.remove('is-hidden');
-             } else {
-               container.classList.add('is-hidden');
-             }
-           } else {
-             container.classList.add('is-hidden');
-           }
+      const productJson = document.querySelector('[data-product-json]');
+      if (!productJson || !variant) return;
+      
+      const productData = JSON.parse(productJson.textContent);
+
+      // Handle Description
+      if (descContainer) {
+        const descVal = productData.variant_descriptions ? productData.variant_descriptions[variant.id] : null;
+        updateDynamicContent(descContainer, descContents, descVal);
+      }
+
+      // Handle Dimensions
+      if (dimContainer) {
+        const dimVal = (productData.variant_dimensions && productData.variant_dimensions[variant.id]) ? productData.variant_dimensions[variant.id] : productData.product_dimensions;
+        updateDynamicContent(dimContainer, dimContents, dimVal);
+      }
+
+      function updateDynamicContent(container, contentAreas, value) {
+        if (value) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = value;
+          const stripped = tempDiv.textContent.trim();
+          
+          if (stripped !== "") {
+            contentAreas.forEach(area => {
+              area.innerHTML = value.replace(/\n/g, '<br>');
+            });
+            container.classList.remove('is-hidden');
+          } else {
+            container.classList.add('is-hidden');
+          }
         } else {
-           container.classList.add('is-hidden');
+          container.classList.add('is-hidden');
         }
       }
     });
