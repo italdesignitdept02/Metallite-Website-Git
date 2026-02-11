@@ -13813,3 +13813,5 @@ shopify-payment-terms {
 .product-spec-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #666; margin-bottom: 5px; letter-spacing: 0.05em; }
 .product-spec-value { font-size: 14px; line-height: 1.4; color: #333; }
 @media screen and (max-width: 640px) { .product-specs-grid { grid-template-columns: 1fr; gap: 15px; } }
+
+.product-spec-item.is-hidden { display: none !important; }

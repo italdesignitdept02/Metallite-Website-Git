@@ -21,6 +21,9 @@
           {%- when 'dimensions' -%}
             {%- assign dim_val = selected_variant.metafields.custom.dimention_specification.value | default: selected_variant.metafields.custom.dimention_specification | default: product.metafields.custom.dimention_specification.value | default: product.metafields.custom.dimention_specification -%}
             {%- assign mat_val = selected_variant.metafields.custom.material.value | default: selected_variant.metafields.custom.material | default: product.metafields.custom.material.value | default: product.metafields.custom.material -%}
+            {%- if mat_val == blank -%}
+              {%- assign mat_val = selected_variant.metafields.custom.materal.value | default: selected_variant.metafields.custom.materal | default: product.metafields.custom.materal.value | default: product.metafields.custom.materal -%}
+            {%- endif -%}
             
             {%- assign dim_stripped = dim_val | strip_html | strip -%}
             {%- assign mat_stripped = mat_val | strip_html | strip -%}
@@ -189,11 +192,12 @@
       },
       "variant_materials": {
         {%- for variant in product.variants -%}
-          "{{ variant.id }}": {{ variant.metafields.custom.material.value | default: variant.metafields.custom.material | json }}{% unless forloop.last %},{% endunless %}
+          {%- assign v_mat = variant.metafields.custom.material.value | default: variant.metafields.custom.material | default: variant.metafields.custom.materal.value | default: variant.metafields.custom.materal -%}
+          "{{ variant.id }}": {{ v_mat | json }}{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
       },
       "product_dimensions": {{ product.metafields.custom.dimention_specification.value | default: product.metafields.custom.dimention_specification | json }},
-      "product_materials": {{ product.metafields.custom.material.value | default: product.metafields.custom.material | json }}
+      "product_materials": {{ product.metafields.custom.material.value | default: product.metafields.custom.material | default: product.metafields.custom.materal.value | default: product.metafields.custom.materal | json }}
       {%- if variant_selector_block.settings.show_inventory_quantity -%}
         ,"inventories": {
           {%- for variant in product.variants -%}
