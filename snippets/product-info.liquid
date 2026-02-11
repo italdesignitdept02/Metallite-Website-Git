@@ -38,30 +38,26 @@
                 <div id="dimensions-{{ section.id }}-{{ block.id }}" class="card__collapsible">
                   <div class="card__collapsible-content">
                     <div class="product-specs-grid">
-                      {%- if dim_stripped != blank -%}
-                        <div class="product-spec-item" data-spec-type="dimension">
-                          <span class="product-spec-label">Dimensions</span>
-                          <div class="product-spec-value product-meta__dimensions-content rte">{{ dim_val | newline_to_br }}</div>
-                        </div>
-                      {%- endif -%}
+                      <div class="product-spec-item {% if dim_stripped == blank %}is-hidden{% endif %}" data-spec-type="dimension">
+                        <span class="product-spec-label">Dimension</span>
+                        <div class="product-spec-value product-meta__dimensions-content rte">{{ dim_val | newline_to_br }}</div>
+                      </div>
                       
-                      {%- if mat_stripped != blank -%}
-                        <div class="product-spec-item" data-spec-type="material">
-                          <span class="product-spec-label">Material</span>
-                          <div class="product-spec-value product-meta__material-content rte">{{ mat_val | newline_to_br }}</div>
-                        </div>
-                      {%- endif -%}
+                      <div class="product-spec-item {% if mat_stripped == blank %}is-hidden{% endif %}" data-spec-type="material">
+                        <span class="product-spec-label">Material</span>
+                        <div class="product-spec-value product-meta__material-content rte">{{ mat_val | newline_to_br }}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               {%- else -%}
                 {%- if block.settings.title != blank -%}
-                  <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>
+                  <span class="product-meta__variant-description-title heading" style="margin-bottom: 0;">{{ block.settings.title | escape }}</span>
                 {%- endif -%}
 
                 <div class="product-specs-grid">
                   <div class="product-spec-item {% if dim_stripped == blank %}is-hidden{% endif %}" data-spec-type="dimension">
-                    <span class="product-spec-label">Dimensions</span>
+                    <span class="product-spec-label">Dimension</span>
                     <div class="product-spec-value product-meta__dimensions-content rte">{{ dim_val | newline_to_br }}</div>
                   </div>
                   

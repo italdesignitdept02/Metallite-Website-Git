@@ -19,8 +19,8 @@
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
-     -moz-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
@@ -74,7 +74,9 @@ a {
   background-color: transparent;
   text-decoration: none;
 }
-a:active, a:hover {
+
+a:active,
+a:hover {
   outline: 0;
 }
 
@@ -215,11 +217,13 @@ input[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   color: inherit;
 }
 
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
   color: inherit;
 }
 
@@ -228,7 +232,7 @@ textarea::placeholder {
   color: inherit;
 }
 
-.is-tabbing input[type=radio]:focus + label {
+.is-tabbing input[type=radio]:focus+label {
   /* Helps improving accessibility */
   outline: 1px dotted #212121;
   outline: 5px auto -webkit-focus-ring-color;
@@ -265,6 +269,7 @@ td,
 th {
   padding: 0;
 }
+
 .flickity-enabled {
   position: relative;
   overflow: visible !important;
@@ -292,9 +297,9 @@ th {
 .flickity-enabled.is-draggable {
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .flickity-enabled.is-draggable .flickity-viewport {
@@ -335,6 +340,7 @@ th {
   will-change: transform;
   transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
+
 .flickity-page-dots .dot::before {
   position: absolute;
   content: "";
@@ -366,9 +372,11 @@ th {
   transform: scale(0.7);
   z-index: 1;
 }
+
 .flickity-prev-next-button:hover {
   background: var(--accent-color);
 }
+
 .flickity-prev-next-button svg {
   position: relative;
   width: 15px;
@@ -376,6 +384,7 @@ th {
   fill: var(--secondary-background);
   vertical-align: middle;
 }
+
 .flickity-prev-next-button[disabled] {
   opacity: 0;
   visibility: hidden;
@@ -384,6 +393,7 @@ th {
 .flickity-prev-next-button.previous {
   left: -25px;
 }
+
 .flickity-prev-next-button.previous svg {
   left: 1px;
 }
@@ -391,6 +401,7 @@ th {
 .flickity-prev-next-button.next {
   right: -25px;
 }
+
 .flickity-prev-next-button.next svg {
   left: -1px;
 }
@@ -406,7 +417,7 @@ th {
    NOTE: there is currently a bug in Flickity-fade when there are only 2 slides (https://github.com/metafizzy/flickity-fade/issues/1),
          which requires currently those ugly !important rules to fix the issue
  */
-.flickity-enabled.is-fade .flickity-slider > * {
+.flickity-enabled.is-fade .flickity-slider>* {
   pointer-events: none;
   z-index: 0;
   visibility: hidden;
@@ -414,7 +425,7 @@ th {
   opacity: 0 !important;
 }
 
-.flickity-enabled.is-fade .flickity-slider > .is-selected {
+.flickity-enabled.is-fade .flickity-slider>.is-selected {
   pointer-events: auto;
   z-index: 1;
   visibility: visible;
@@ -422,29 +433,33 @@ th {
 }
 
 /* Make sure that if Flickity is embedded within a modal, the slideshow are not with auto pointer events */
-.modal[aria-hidden=true] .flickity-slider > * {
+.modal[aria-hidden=true] .flickity-slider>* {
   pointer-events: none !important;
 }
 
 /* Temporary fix for slideshow, should be fixed once Flickity is fixed */
-.product-gallery__carousel.is-fade .flickity-slider > * {
+.product-gallery__carousel.is-fade .flickity-slider>* {
   transition: opacity 0.3s linear !important;
 }
+
 @-webkit-keyframes drift-fadeZoomIn {
   0% {
     transform: scale(1.2);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
   }
 }
+
 @keyframes drift-fadeZoomIn {
   0% {
     transform: scale(1.2);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -456,6 +471,7 @@ th {
     transform: scale(1);
     opacity: 1;
   }
+
   100% {
     transform: scale(0.5);
     opacity: 0;
@@ -467,6 +483,7 @@ th {
     transform: scale(1);
     opacity: 1;
   }
+
   100% {
     transform: scale(0.5);
     opacity: 0;
@@ -477,9 +494,11 @@ th {
   0% {
     transform: translate(-50%, -50%) rotate(0);
   }
+
   50% {
     transform: translate(-50%, -50%) rotate(-180deg);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
@@ -489,9 +508,11 @@ th {
   0% {
     transform: translate(-50%, -50%) rotate(0);
   }
+
   50% {
     transform: translate(-50%, -50%) rotate(-180deg);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
@@ -501,27 +522,35 @@ th {
   0% {
     transform: scale(1);
   }
+
   10% {
     transform: scale(1.2) translateX(6px);
   }
+
   25% {
     transform: scale(1.3) translateX(8px);
   }
+
   40% {
     transform: scale(1.2) translateX(6px);
   }
+
   50% {
     transform: scale(1);
   }
+
   60% {
     transform: scale(0.8) translateX(6px);
   }
+
   75% {
     transform: scale(0.7) translateX(8px);
   }
+
   90% {
     transform: scale(0.8) translateX(6px);
   }
+
   100% {
     transform: scale(1);
   }
@@ -531,27 +560,35 @@ th {
   0% {
     transform: scale(1);
   }
+
   10% {
     transform: scale(1.2) translateX(6px);
   }
+
   25% {
     transform: scale(1.3) translateX(8px);
   }
+
   40% {
     transform: scale(1.2) translateX(6px);
   }
+
   50% {
     transform: scale(1);
   }
+
   60% {
     transform: scale(0.8) translateX(6px);
   }
+
   75% {
     transform: scale(0.7) translateX(8px);
   }
+
   90% {
     transform: scale(0.8) translateX(6px);
   }
+
   100% {
     transform: scale(1);
   }
@@ -561,27 +598,35 @@ th {
   0% {
     transform: scale(1);
   }
+
   10% {
     transform: scale(1.2) translateX(-6px);
   }
+
   25% {
     transform: scale(1.3) translateX(-8px);
   }
+
   40% {
     transform: scale(1.2) translateX(-6px);
   }
+
   50% {
     transform: scale(1);
   }
+
   60% {
     transform: scale(0.8) translateX(-6px);
   }
+
   75% {
     transform: scale(0.7) translateX(-8px);
   }
+
   90% {
     transform: scale(0.8) translateX(-6px);
   }
+
   100% {
     transform: scale(1);
   }
@@ -591,27 +636,35 @@ th {
   0% {
     transform: scale(1);
   }
+
   10% {
     transform: scale(1.2) translateX(-6px);
   }
+
   25% {
     transform: scale(1.3) translateX(-8px);
   }
+
   40% {
     transform: scale(1.2) translateX(-6px);
   }
+
   50% {
     transform: scale(1);
   }
+
   60% {
     transform: scale(0.8) translateX(-6px);
   }
+
   75% {
     transform: scale(0.7) translateX(-8px);
   }
+
   90% {
     transform: scale(0.8) translateX(-6px);
   }
+
   100% {
     transform: scale(1);
   }
@@ -635,12 +688,12 @@ th {
 
 .drift-zoom-pane.drift-opening {
   -webkit-animation: drift-fadeZoomIn 180ms ease-out;
-          animation: drift-fadeZoomIn 180ms ease-out;
+  animation: drift-fadeZoomIn 180ms ease-out;
 }
 
 .drift-zoom-pane.drift-closing {
   -webkit-animation: drift-fadeZoomOut 210ms ease-in;
-          animation: drift-fadeZoomOut 210ms ease-in;
+  animation: drift-fadeZoomOut 210ms ease-in;
 }
 
 .drift-zoom-pane.drift-inline {
@@ -660,7 +713,7 @@ th {
   width: 66px;
   height: 20px;
   -webkit-animation: drift-loader-rotate 1800ms infinite linear;
-          animation: drift-loader-rotate 1800ms infinite linear;
+  animation: drift-loader-rotate 1800ms infinite linear;
 }
 
 .drift-zoom-pane-loader:before,
@@ -679,15 +732,15 @@ th {
 .drift-zoom-pane-loader:before {
   left: 0;
   -webkit-animation: drift-loader-before 1800ms infinite linear;
-          animation: drift-loader-before 1800ms infinite linear;
+  animation: drift-loader-before 1800ms infinite linear;
 }
 
 .drift-zoom-pane-loader:after {
   right: 0;
   -webkit-animation: drift-loader-after 1800ms infinite linear;
-          animation: drift-loader-after 1800ms infinite linear;
+  animation: drift-loader-after 1800ms infinite linear;
   -webkit-animation-delay: -900ms;
-          animation-delay: -900ms;
+  animation-delay: -900ms;
 }
 
 .drift-bounding-box {
@@ -702,6 +755,7 @@ th {
     height: 240px;
   }
 }
+
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 
 .pswp {
@@ -783,9 +837,9 @@ th {
 .pswp__container,
 .pswp__img {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
@@ -930,68 +984,81 @@ html {
   color: var(--heading-color);
 }
 
-.h1, .rte h1 {
+.h1,
+.rte h1 {
   margin-bottom: 20px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 24px));
   line-height: 1.45;
 }
 
-.h2, .rte h2 {
+.h2,
+.rte h2 {
   margin-bottom: 20px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 22px));
   line-height: 1.55;
 }
 
-.h3, .rte h3 {
+.h3,
+.rte h3 {
   margin-bottom: 14px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 20px));
   line-height: 1.6;
 }
 
-.h4, .rte h4 {
+.h4,
+.rte h4 {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 16px));
   line-height: 1.75;
 }
 
-.h5, .rte h4 {
+.h5,
+.rte h4 {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
   line-height: 1.85;
   text-transform: uppercase;
 }
 
-.h6, .rte h5 {
+.h6,
+.rte h5 {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 12px));
   line-height: 1.85;
   text-transform: uppercase;
 }
 
 @media screen and (min-width: 641px) {
-  .h1, .rte h1 {
+
+  .h1,
+  .rte h1 {
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 28px));
     line-height: 1.43;
   }
 
-  .h2, .rte h2 {
+  .h2,
+  .rte h2 {
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 25px));
     line-height: 1.5;
   }
 
-  .h3, .rte h3 {
+  .h3,
+  .rte h3 {
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 21px));
     line-height: 1.5;
   }
 
-  .h4, .rte h4 {
+  .h4,
+  .rte h4 {
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 18px));
     line-height: 1.7;
   }
 
-  .h5, .rte h5 {
+  .h5,
+  .rte h5 {
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 16px));
     line-height: 1.75;
   }
 
-  .h6, .rte h6 {
+  .h6,
+  .rte h6 {
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
     line-height: 1.7;
   }
@@ -1003,7 +1070,8 @@ html {
  * --------------------------------------------------------------------
  */
 
-.text--strong, .highlight {
+.text--strong,
+.highlight {
   color: var(--heading-color);
   font-weight: var(--text-font-bolder-weight);
 }
@@ -1059,6 +1127,7 @@ html {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1068,6 +1137,7 @@ html {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1086,10 +1156,11 @@ html {
 
 .icon--search-loader {
   -webkit-animation: spinnerRotation 0.7s infinite linear;
-          animation: spinnerRotation 0.7s infinite linear;
+  animation: spinnerRotation 0.7s infinite linear;
 }
 
-@media (-moz-touch-enabled: 1), (hover: none) {
+@media (-moz-touch-enabled: 1),
+(hover: none) {
   .touch-area {
     position: relative;
     background: transparent;
@@ -1176,6 +1247,7 @@ html {
 }
 
 @media screen and (max-width: 640px) {
+
   /* When a table is within a card, on mobile, we need to change the margin and padding to respect the funny iOS-style border */
   .card .table {
     margin-left: 20px;
@@ -1188,7 +1260,9 @@ html {
 }
 
 @media screen and (min-width: 641px) {
-  .table th, .table td {
+
+  .table th,
+  .table td {
     padding: 15px 30px;
   }
 
@@ -1209,6 +1283,7 @@ html {
     overflow: visible;
   }
 }
+
 html {
   overflow-x: hidden;
 }
@@ -1292,6 +1367,7 @@ body:not(.is-tabbing) textarea:focus {
     padding: 0 var(--desktop-container-gutter);
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * ASPECT RATIO
@@ -1339,14 +1415,16 @@ body:not(.is-tabbing) textarea:focus {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
 @supports ((-o-object-fit: contain) or (object-fit: contain)) {
+
   .aspect-ratio--square img,
   .aspect-ratio--short img,
   .aspect-ratio--tall img {
     width: 100%;
     height: 100%;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
 }
 
@@ -1357,22 +1435,29 @@ body:not(.is-tabbing) textarea:focus {
  */
 
 @-webkit-keyframes lazyLoader {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(-50%);
   }
+
   50% {
     transform: translateX(100%);
   }
 }
 
 @keyframes lazyLoader {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(-50%);
   }
+
   50% {
     transform: translateX(100%);
   }
 }
+
 img.lazyload[data-sizes=auto] {
   width: 100%;
   /* this is needed to help LazySizes calculate the correct size */
@@ -1419,16 +1504,17 @@ img.lazyload[data-sizes=auto] {
   background-color: var(--text-color);
 }
 
-.lazyloading ~ .lazyload__loader {
+.lazyloading~.lazyload__loader {
   opacity: 1;
   visibility: visible;
   z-index: 1;
 }
-.lazyloading ~ .lazyload__loader::after {
+
+.lazyloading~.lazyload__loader::after {
   -webkit-animation: lazyLoader 3s infinite;
-          animation: lazyLoader 3s infinite;
+  animation: lazyLoader 3s infinite;
   -webkit-animation-timing-function: cubic-bezier(0.43, 0.43, 0.25, 0.99);
-          animation-timing-function: cubic-bezier(0.43, 0.43, 0.25, 0.99);
+  animation-timing-function: cubic-bezier(0.43, 0.43, 0.25, 0.99);
 }
 
 /**
@@ -1460,6 +1546,7 @@ img.lazyload[data-sizes=auto] {
   background-color: var(--text-color);
   fill-opacity: 0.5;
 }
+
 /* This is just a foundation for an ultra simplistic grid */
 
 .grid {
@@ -1815,21 +1902,24 @@ img.lazyload[data-sizes=auto] {
 }
 
 .block-list--no-flush.block-list--no-flush {
-  margin-bottom: 0; /* The double class is to increase specifity and avoid to set it at each breakpoint */
+  margin-bottom: 0;
+  /* The double class is to increase specifity and avoid to set it at each breakpoint */
 }
 
 .block-list__item {
-  display: flex; /* Allow to stretch the content if different block items have different height */
+  display: flex;
+  /* Allow to stretch the content if different block items have different height */
 }
 
 /* Unfortunately IE11 does not like nested flex items, so for IE11, we revert to display: block */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
   .block-list__item {
     display: block;
   }
 }
 
-.block-list__item > :first-child {
+.block-list__item> :first-child {
   margin: 0 7px 20px 7px;
   flex: 1 0 0%;
 }
@@ -1884,7 +1974,7 @@ img.lazyload[data-sizes=auto] {
     margin: 0 -15px -30px -15px;
   }
 
-  .block-list__item > :first-child {
+  .block-list__item> :first-child {
     margin: 0 15px 30px 15px;
   }
 }
@@ -1911,7 +2001,8 @@ img.lazyload[data-sizes=auto] {
 .block-list--loose {
   margin-bottom: -45px;
 }
-.block-list--loose .block-list__item > :first-child {
+
+.block-list--loose .block-list__item> :first-child {
   margin-bottom: 45px;
 }
 
@@ -1920,10 +2011,11 @@ img.lazyload[data-sizes=auto] {
     margin-bottom: -60px;
   }
 
-  .block-list--loose .block-list__item > :first-child {
+  .block-list--loose .block-list__item> :first-child {
     margin-bottom: 60px;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * ARTICLE ITEM
@@ -1943,9 +2035,9 @@ img.lazyload[data-sizes=auto] {
 
 .article-item__image {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   font-family: "object-fit: cover; object-position: center";
   /* IE11 polyfill */
   transform: scale(1.01);
@@ -2010,7 +2102,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (min-width: 1280px) {
-  .article-item__meta-item + .article-item__meta-item::before {
+  .article-item__meta-item+.article-item__meta-item::before {
     margin: 0 14px;
   }
 }
@@ -2071,7 +2163,7 @@ img.lazyload[data-sizes=auto] {
   align-items: center;
 }
 
-.article__aside-item + .article__aside-item {
+.article__aside-item+.article__aside-item {
   margin-top: 20px;
 }
 
@@ -2147,7 +2239,7 @@ img.lazyload[data-sizes=auto] {
   margin-top: 50px;
 }
 
-.article__comment-list + .article__comment-form {
+.article__comment-list+.article__comment-form {
   margin-top: 70px;
 }
 
@@ -2174,7 +2266,7 @@ img.lazyload[data-sizes=auto] {
     overflow: hidden;
   }
 
-  .article__image-wrapper + .card {
+  .article__image-wrapper+.card {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -2234,6 +2326,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (min-width: 1000px) {
+
   /* From tablet and up the sidebar is on the right */
   .blog-container {
     display: flex;
@@ -2279,6 +2372,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (max-width: 640px) {
+
   /* On mobile it goes to the edge */
   .blog-sidebar__item--newsletter {
     border-radius: 0;
@@ -2306,7 +2400,7 @@ img.lazyload[data-sizes=auto] {
   color: var(--accent-color);
 }
 
-.blog-sidebar__post-item + .blog-sidebar__post-item {
+.blog-sidebar__post-item+.blog-sidebar__post-item {
   margin-top: 30px;
 }
 
@@ -2391,11 +2485,12 @@ img.lazyload[data-sizes=auto] {
   width: 75px !important;
 }
 
-.blog-sidebar__item--products .product-item__price-list > .price {
+.blog-sidebar__item--products .product-item__price-list>.price {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 16px));
 }
 
 @media screen and (max-width: 640px) {
+
   /* For the sidebar the products display slightly differently as they do not goes edge to edge */
   .blog-sidebar__item--products .product-list--horizontal {
     border: 1px solid var(--border-color);
@@ -2424,9 +2519,10 @@ img.lazyload[data-sizes=auto] {
   padding-bottom: 0;
 }
 
-.blog-sidebar__link-item > a {
+.blog-sidebar__link-item>a {
   display: block;
 }
+
 .button {
   position: relative;
   display: inline-block;
@@ -2510,7 +2606,8 @@ img.lazyload[data-sizes=auto] {
    sold out label to create some consistence */
 .button--disabled {
   background: var(--product-sold-out-color);
-  box-shadow: 0 0 0 1px var(--product-sold-out-color) inset; /* use box-shadow instead of border to not create additional space */
+  box-shadow: 0 0 0 1px var(--product-sold-out-color) inset;
+  /* use box-shadow instead of border to not create additional space */
   color: var(--secondary-background);
 }
 
@@ -2551,7 +2648,7 @@ img.lazyload[data-sizes=auto] {
   flex-direction: column;
 }
 
-.button-stack > .button + .button {
+.button-stack>.button+.button {
   margin-top: 10px;
 }
 
@@ -2568,11 +2665,11 @@ img.lazyload[data-sizes=auto] {
   margin: -5px;
 }
 
-.button-group > * {
+.button-group>* {
   margin: 5px;
 }
 
-.button-group--fit > * {
+.button-group--fit>* {
   flex: 1 0 0;
   padding-left: 15px;
   padding-right: 15px;
@@ -2582,9 +2679,10 @@ img.lazyload[data-sizes=auto] {
   margin: -10px;
 }
 
-.button-group--loose > * {
+.button-group--loose>* {
   margin: 10px;
 }
+
 /**
  * --------------------------------------------------------------------
  * Standard card
@@ -2644,12 +2742,13 @@ img.lazyload[data-sizes=auto] {
   width: 100%;
   cursor: pointer;
 }
+
 .card__collapsible-button .plus-button {
   margin-left: 10px;
   color: var(--heading-color);
 }
 
-.card__section + .card__section::before {
+.card__section+.card__section::before {
   position: absolute;
   display: block;
   content: "";
@@ -2685,7 +2784,8 @@ img.lazyload[data-sizes=auto] {
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
-  margin-top: -3px; /* Yeah, designers like making things simple complicated :D */
+  margin-top: -3px;
+  /* Yeah, designers like making things simple complicated :D */
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
 }
 
@@ -2708,7 +2808,8 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (max-width: 640px) {
   .card {
-    border-radius: 0; /* cards expand full-width on mobile */
+    border-radius: 0;
+    /* cards expand full-width on mobile */
   }
 
   .card__section--flex .button {
@@ -2721,7 +2822,8 @@ img.lazyload[data-sizes=auto] {
   .card--collapsed {
     margin-top: -18px !important;
     border-top: none !important;
-    box-shadow: 0 -1px var(--secondary-background); /* allows to hide the border of the previous card */
+    box-shadow: 0 -1px var(--secondary-background);
+    /* allows to hide the border of the previous card */
   }
 
   .card--collapsed .card__header,
@@ -2753,7 +2855,7 @@ img.lazyload[data-sizes=auto] {
     padding: 30px;
   }
 
-  .card__section + .card__section::before {
+  .card__section+.card__section::before {
     width: 100%;
   }
 
@@ -2812,6 +2914,7 @@ img.lazyload[data-sizes=auto] {
 .card__section .rte .button:last-child {
   margin-bottom: 15px;
 }
+
 /**
  * --------------------------------------------------------------------
  * Mini-cart
@@ -2863,7 +2966,7 @@ img.lazyload[data-sizes=auto] {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
 }
 
-.mini-cart__content:not(.mini-cart__content--empty) > * {
+.mini-cart__content:not(.mini-cart__content--empty)>* {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -2876,6 +2979,7 @@ img.lazyload[data-sizes=auto] {
   padding: 70px 0 60px 0;
   text-align: center;
 }
+
 .mini-cart__empty-state svg {
   margin-bottom: 10px;
 }
@@ -2884,7 +2988,7 @@ img.lazyload[data-sizes=auto] {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  overscroll-behavior: none;
 }
 
 .mini-cart__line-item {
@@ -2893,7 +2997,7 @@ img.lazyload[data-sizes=auto] {
   padding: 20px 0;
 }
 
-.mini-cart__line-item + .mini-cart__line-item {
+.mini-cart__line-item+.mini-cart__line-item {
   border-top: 1px solid var(--border-color);
 }
 
@@ -2933,7 +3037,7 @@ img.lazyload[data-sizes=auto] {
   margin: 6px 0;
 }
 
-.mini-cart__price-list > .price {
+.mini-cart__price-list>.price {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
   font-weight: var(--text-font-bolder-weight);
 }
@@ -2963,7 +3067,7 @@ img.lazyload[data-sizes=auto] {
   vertical-align: text-bottom;
 }
 
-.mini-cart__discount + .mini-cart__discount {
+.mini-cart__discount+.mini-cart__discount {
   margin-top: 5px;
 }
 
@@ -2991,7 +3095,7 @@ img.lazyload[data-sizes=auto] {
   color: var(--product-on-sale-accent);
 }
 
-.mini-cart__recap-price-line + .mini-cart__recap-price-line {
+.mini-cart__recap-price-line+.mini-cart__recap-price-line {
   margin-top: 4px;
 }
 
@@ -3023,6 +3127,7 @@ img.lazyload[data-sizes=auto] {
   }
 
   @supports (padding: max(0px)) {
+
     .mini-cart__recap,
     .mini-cart__content--empty {
       padding-bottom: max(25px, env(safe-area-inset-bottom, 0px) + 25px);
@@ -3042,7 +3147,7 @@ img.lazyload[data-sizes=auto] {
     box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.1);
   }
 
-  .mini-cart__content > * {
+  .mini-cart__content>* {
     padding-left: 25px;
     padding-right: 25px;
   }
@@ -3182,7 +3287,7 @@ img.lazyload[data-sizes=auto] {
   height: 24px;
 }
 
-.gift-wrap__text > span:first-child {
+.gift-wrap__text>span:first-child {
   margin-right: 10px;
 }
 
@@ -3229,6 +3334,7 @@ img.lazyload[data-sizes=auto] {
 .estimate-shipping__arrow {
   margin-left: auto;
 }
+
 .estimate-shipping__arrow svg {
   width: 12px;
   height: 8px;
@@ -3269,7 +3375,7 @@ img.lazyload[data-sizes=auto] {
   color: var(--heading-color);
 }
 
-.cart-recap__price-line + .cart-recap__price-line {
+.cart-recap__price-line+.cart-recap__price-line {
   margin-top: 4px;
 }
 
@@ -3300,11 +3406,13 @@ img.lazyload[data-sizes=auto] {
   padding: 10px 0;
   width: 100%;
 }
+
 .cart-recap__note-button svg {
   width: 12px;
   height: 8px;
   transition: transform 0.2s ease-in-out;
 }
+
 .cart-recap__note-button[aria-expanded=true] svg {
   transform: rotateZ(180deg);
 }
@@ -3348,6 +3456,7 @@ img.lazyload[data-sizes=auto] {
     margin-top: 20px;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * MAIN COLLECTION
@@ -3375,7 +3484,7 @@ img.lazyload[data-sizes=auto] {
   /* Height depends on the ratio of the original image */
 }
 
-.collection__image-wrapper + .card {
+.collection__image-wrapper+.card {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -3530,7 +3639,7 @@ img.lazyload[data-sizes=auto] {
     box-shadow: 0 1px var(--border-color), 0 -1px var(--border-color);
   }
 
-  .card__header--tight + .collection__toolbar--bordered {
+  .card__header--tight+.collection__toolbar--bordered {
     margin-top: 25px;
   }
 
@@ -3544,7 +3653,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (max-width: 640px) {
-  .collection__toolbar-item--count + .collection__toolbar-item--layout {
+  .collection__toolbar-item--count+.collection__toolbar-item--layout {
     margin-left: auto;
   }
 }
@@ -3566,6 +3675,7 @@ img.lazyload[data-sizes=auto] {
     display: flex;
     align-items: flex-start;
   }
+
   .collection__header--brand .collection__meta {
     display: block;
   }
@@ -3596,6 +3706,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (min-width: 1440px) {
+
   .collection__showing-count,
   .collection__toolbar-item--sort {
     margin-right: 80px;
@@ -3625,6 +3736,7 @@ img.lazyload[data-sizes=auto] {
   align-items: center;
   text-align: left;
 }
+
 .collection__filter-group-name svg {
   width: 12px;
   height: 8px;
@@ -3670,6 +3782,7 @@ img.lazyload[data-sizes=auto] {
   padding: 3px 0 4px 0;
   text-align: left;
 }
+
 .collection__filter-link svg {
   width: 12px;
   height: 8px;
@@ -3713,12 +3826,14 @@ img.lazyload[data-sizes=auto] {
 }
 
 .collection__filter-checkbox .checkbox {
-  margin-right: 0; /* We remove the spacing here to give it to set it as a padding on the label, so that it is fully
+  margin-right: 0;
+  /* We remove the spacing here to give it to set it as a padding on the label, so that it is fully
                       clickable. This may be fixed in a more generic way in the checkbox component in the future */
 }
 
 .collection__filter-checkbox label {
-  padding-left: 14px; /* This is micro-alignment to respect the design due to the usage of flexbox here */
+  padding-left: 14px;
+  /* This is micro-alignment to respect the design due to the usage of flexbox here */
   line-height: 1.5;
 }
 
@@ -3825,6 +3940,7 @@ img.lazyload[data-sizes=auto] {
   .collection__filter-checkbox {
     padding: 0;
   }
+
   .collection__filter-checkbox .checkbox-wrapper {
     margin: 8px 0;
   }
@@ -3921,7 +4037,7 @@ img.lazyload[data-sizes=auto] {
   z-index: 1;
 }
 
-.collection-drawer__header > div {
+.collection-drawer__header>div {
   display: flex;
   align-items: center;
 }
@@ -3988,7 +4104,8 @@ img.lazyload[data-sizes=auto] {
   width: 100%;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
-  z-index: 1; /* This is needed to create a new stacking context to improve performance on iOS */
+  z-index: 1;
+  /* This is needed to create a new stacking context to improve performance on iOS */
 }
 
 .product-list .flickity-viewport {
@@ -4020,6 +4137,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (max-width: 640px) {
+
   .product-list--scrollable::before,
   .product-list--scrollable::after {
     content: "";
@@ -4040,6 +4158,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (min-width: 641px) and (max-width: 999px) {
+
   .product-list--scrollable::before,
   .product-list--scrollable::after {
     content: "";
@@ -4063,7 +4182,8 @@ img.lazyload[data-sizes=auto] {
     position: absolute;
     content: "";
     width: 100%;
-    height: calc(100% + 0px); /* This solves an issue on Safari, where 100% does not always work - likely a pixel rounding issue - */
+    height: calc(100% + 0px);
+    /* This solves an issue on Safari, where 100% does not always work - likely a pixel rounding issue - */
     border: 1px solid var(--border-color);
     z-index: 1;
     pointer-events: none;
@@ -4077,7 +4197,7 @@ img.lazyload[data-sizes=auto] {
     flex: 0 0 33.333333%;
   }
 
-  .product-list__column > .product-item {
+  .product-list__column>.product-item {
     flex: 1 0 auto;
   }
 
@@ -4114,7 +4234,7 @@ img.lazyload[data-sizes=auto] {
     border: 1px solid var(--border-color);
   }
 
-  .product-list--scrollable .product-item + .product-item {
+  .product-list--scrollable .product-item+.product-item {
     border-left: none;
   }
 
@@ -4132,12 +4252,14 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (min-width: 1000px) {
+
   /* This needs to be done instead of applying a border to the product-list to fix a z-index issue with the product labels */
   .product-list::before {
     position: absolute;
     content: "";
     width: 100%;
-    height: calc(100% + 0px); /* This solves an issue on Safari, where 100% does not always work - likely a pixel rounding issue - */
+    height: calc(100% + 0px);
+    /* This solves an issue on Safari, where 100% does not always work - likely a pixel rounding issue - */
     border: 1px solid var(--border-color);
     z-index: 1;
     pointer-events: none;
@@ -4219,6 +4341,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (max-width: 640px) {
+
   .featured-collection,
   .featured-collection__header {
     background-image: none !important;
@@ -4252,7 +4375,8 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (min-width: 1000px) {
   .featured-collection {
-    display: table; /* using Flexbox here didn't work well, so let's use old school and reliable stuff */
+    display: table;
+    /* using Flexbox here didn't work well, so let's use old school and reliable stuff */
     table-layout: fixed;
     width: 100%;
     padding: 6px 6px 6px 0;
@@ -4274,6 +4398,7 @@ img.lazyload[data-sizes=auto] {
   .featured-collection .product-list {
     margin-bottom: 0;
   }
+
   .featured-collection .product-list::before {
     display: none;
   }
@@ -4290,6 +4415,7 @@ img.lazyload[data-sizes=auto] {
     right: 0;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * COLLECTION ITEM (round style)
@@ -4327,11 +4453,13 @@ img.lazyload[data-sizes=auto] {
 
 .collection-item__image-wrapper img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: center;
-     object-position: center;
-  transform: scale(1.01); /* The 1.01 is necessary to avoid some rounding issues on Chrome */
-  font-family: "object-fit: cover; object-position: center;"; /* IE11 polyfill */
+  object-position: center;
+  transform: scale(1.01);
+  /* The 1.01 is necessary to avoid some rounding issues on Chrome */
+  font-family: "object-fit: cover; object-position: center;";
+  /* IE11 polyfill */
   transition: opacity 0.2s ease-in-out, transform 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -4393,7 +4521,8 @@ img.lazyload[data-sizes=auto] {
 
   .collection-list::after {
     display: none;
-    content: "flickity"; /* enable Flickity slideshow */
+    content: "flickity";
+    /* enable Flickity slideshow */
   }
 
   .collection-item {
@@ -4403,7 +4532,8 @@ img.lazyload[data-sizes=auto] {
   }
 
   .collection-list .flickity-prev-next-button {
-    top: calc(50% - 25px - 12px - 0.5em); /* 12px is the margin bottom below the image and 0.5em is half a line of text */
+    top: calc(50% - 25px - 12px - 0.5em);
+    /* 12px is the margin bottom below the image and 0.5em is half a line of text */
   }
 
   .collection-list .flickity-prev-next-button.previous {
@@ -4502,6 +4632,7 @@ img.lazyload[data-sizes=auto] {
     transform: scale(1.4);
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * Custom content section (this one is a bit a "fit-all" section, so it
@@ -4521,6 +4652,7 @@ img.lazyload[data-sizes=auto] {
 .custom-content--product .product-item::after {
   box-shadow: 1px 0 var(--border-color), -1px 0 var(--border-color), 0 1px var(--border-color), 0 -1px var(--border-color);
 }
+
 /**
  * --------------------------------------------------------------------
  * FIELD
@@ -4540,7 +4672,8 @@ img.lazyload[data-sizes=auto] {
   -webkit-appearance: none;
   resize: none;
   font-size: 1rem;
-  font-size: max(1rem, 16px); /* for modern browser ; setting a min value of 16px is required for accessibility */
+  font-size: max(1rem, 16px);
+  /* for modern browser ; setting a min value of 16px is required for accessibility */
   box-shadow: 0 1px rgba(var(--border-color-rgb), 0.25) inset;
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -4595,7 +4728,7 @@ img.lazyload[data-sizes=auto] {
   border-color: var(--error-color);
 }
 
-.form__field[aria-invalid]:not(.is-filled) + .form__floating-label {
+.form__field[aria-invalid]:not(.is-filled)+.form__floating-label {
   color: var(--error-color);
 }
 
@@ -4648,7 +4781,8 @@ img.lazyload[data-sizes=auto] {
   position: absolute;
   left: 13px;
   top: 0;
-  line-height: 48px; /* allows to center the field */
+  line-height: 48px;
+  /* allows to center the field */
   font-size: 1rem;
   color: var(--text-color);
   transform: scale(1);
@@ -4657,9 +4791,9 @@ img.lazyload[data-sizes=auto] {
   pointer-events: none;
 }
 
-.form__field:focus + .form__floating-label,
-.form__field.is-filled + .form__floating-label,
-.select-wrapper.is-filled + .form__floating-label {
+.form__field:focus+.form__floating-label,
+.form__field.is-filled+.form__floating-label,
+.select-wrapper.is-filled+.form__floating-label {
   transform: translateY(-6px) scale(0.8);
 }
 
@@ -4668,7 +4802,7 @@ img.lazyload[data-sizes=auto] {
   padding-bottom: 3px;
 }
 
-.form__field--large + .form__floating-label {
+.form__field--large+.form__floating-label {
   left: 18px;
   line-height: 60px;
 }
@@ -4699,25 +4833,27 @@ img.lazyload[data-sizes=auto] {
     align-items: flex-end;
     margin: 0 -6px;
   }
+
   .form__input-row:not(:last-child) {
     margin-bottom: 12px;
   }
 
-  .form__input-row > .form__input-wrapper {
+  .form__input-row>.form__input-wrapper {
     margin-bottom: 0;
   }
 
-  .form__input-row > * {
+  .form__input-row>* {
     margin-left: 6px;
     margin-right: 6px;
   }
 
-  .form__input-row > .form__submit {
+  .form__input-row>.form__submit {
     margin-top: 0;
   }
 
-  .form__input-row > .form__submit {
-    flex: 1 0 auto; /* we let the submit button grow freely */
+  .form__input-row>.form__submit {
+    flex: 1 0 auto;
+    /* we let the submit button grow freely */
   }
 }
 
@@ -4740,7 +4876,8 @@ img.lazyload[data-sizes=auto] {
 .form__connected-item .form__field {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border-right: none; /* When connected with the icon, the box-shadow must be set inside */
+  border-right: none;
+  /* When connected with the icon, the box-shadow must be set inside */
 }
 
 .form__connected-item .form__field:focus {
@@ -4785,7 +4922,7 @@ img.lazyload[data-sizes=auto] {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
 }
 
-.form__secondary-action > * {
+.form__secondary-action>* {
   margin-bottom: 0;
 }
 
@@ -4827,7 +4964,8 @@ select::-ms-expand {
   display: inline-block;
   color: inherit;
   cursor: pointer;
-  border-radius: 0; /* Remove the ugly blue background on IE when a value is selected */
+  border-radius: 0;
+  /* Remove the ugly blue background on IE when a value is selected */
 }
 
 .select-wrapper select:focus::-ms-value {
@@ -4869,7 +5007,8 @@ select::-ms-expand {
   background: transparent;
   box-shadow: 0 -1px 1px rgba(var(--border-color-rgb), 0.3) inset;
   font-size: 1rem;
-  font-size: max(1rem, 16px); /* for modern browser ; setting a min value of 16px is required for accessibility */
+  font-size: max(1rem, 16px);
+  /* for modern browser ; setting a min value of 16px is required for accessibility */
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -4978,7 +5117,7 @@ select option {
   color: var(--secondary-background);
 }
 
-.checkbox-wrapper ~ label {
+.checkbox-wrapper~label {
   vertical-align: middle;
   cursor: pointer;
 }
@@ -5008,17 +5147,17 @@ select option {
   box-shadow: none;
 }
 
-.checkbox:checked + svg {
+.checkbox:checked+svg {
   transform: scale(1);
 }
 
-.checkbox.is-selected ~ label {
+.checkbox.is-selected~label {
   color: var(--accent-color);
   font-weight: var(--text-font-bolder-weight);
 }
 
 .checkbox,
-.checkbox ~ label {
+.checkbox~label {
   vertical-align: middle;
   cursor: pointer;
 }
@@ -5046,7 +5185,7 @@ select option {
 .input-prefix__field {
   padding: 0;
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   -moz-appearance: textfield;
   min-width: 0;
   width: 100%;
@@ -5081,10 +5220,13 @@ select option {
 
 .range {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
+  -moz-appearance: none;
+  appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  width: 100%;
+  /* Specific width is required for Firefox. */
+  background: transparent;
+  /* Otherwise white in Chrome */
 }
 
 .range::-webkit-slider-thumb {
@@ -5145,6 +5287,7 @@ select option {
 }
 
 @media not screen and (any-hover: hover) {
+
   /* On touch device, we increase the size of the thumb to make it easier to grab */
   .range::-webkit-slider-thumb {
     width: 20px;
@@ -5194,6 +5337,7 @@ select option {
   top: 0;
   left: 0;
 }
+
 .gift-card__inner {
   padding: 30px 0;
 }
@@ -5295,6 +5439,7 @@ select option {
 }
 
 @media screen and (min-width: 641px) {
+
   /* On gift card there is no search bar so we increase the header */
   .template-gift-card .header {
     padding-top: 30px;
@@ -5351,6 +5496,7 @@ select option {
     display: none;
   }
 }
+
 .footer {
   padding: 10px 0 30px 0;
   border-top: var(--footer-border);
@@ -5380,9 +5526,9 @@ select option {
 .footer__title[disabled] {
   cursor: text;
   -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .footer__linklist {
@@ -5634,7 +5780,8 @@ select option {
 }
 
 .header__mobile-nav-toggle {
-  top: -1px; /* Slight alignment for pixel perfect :D */
+  top: -1px;
+  /* Slight alignment for pixel perfect :D */
 }
 
 .header__desktop-nav-toggle {
@@ -5642,16 +5789,19 @@ select option {
   padding: 0 15px;
   border: 1px solid var(--header-border-color);
   border-radius: 3px;
-  font-weight: var(--text-font-bolder-weight); /* Safari 10 does not allow using flexbox on button... so we have to use an additional wrapper */
+  font-weight: var(--text-font-bolder-weight);
+  /* Safari 10 does not allow using flexbox on button... so we have to use an additional wrapper */
 }
-.header__desktop-nav-toggle > span {
+
+.header__desktop-nav-toggle>span {
   display: flex;
   align-items: center;
 }
 
 .header__desktop-nav-text {
   position: relative;
-  top: 1px; /* Slight alignment for the pixel perfect */
+  top: 1px;
+  /* Slight alignment for the pixel perfect */
 }
 
 .header__search-bar-wrapper {
@@ -5700,6 +5850,7 @@ select option {
 }
 
 @media screen and (max-width: 640px) {
+
   /* This trick allows to enforce a minimum height for header on mobile */
   .header {
     display: flex;
@@ -5707,7 +5858,7 @@ select option {
     min-height: 64px;
   }
 
-  .header > .container {
+  .header>.container {
     width: 100%;
   }
 
@@ -5767,8 +5918,10 @@ select option {
 .header__action-item {
   padding: 0 9px;
 }
+
 .header__action-item:last-child {
-  padding-right: 4px; /* Last item is the cart, and we use a small padding to accommodate the presence of the cart item count */
+  padding-right: 4px;
+  /* Last item is the cart, and we use a small padding to accommodate the presence of the cart item count */
 }
 
 .header__action-item-link {
@@ -5812,7 +5965,7 @@ select option {
   height: 15px;
 }
 
-.header__action-item .icon--lock-2 + span {
+.header__action-item .icon--lock-2+span {
   margin-left: 14px;
 }
 
@@ -5848,6 +6001,7 @@ select option {
 }
 
 @media screen and (max-width: 640px) {
+
   /* This code is not optimal but the cart icon has a specific positioning so we override it this way */
   .header__cart-icon .icon-state__secondary.icon-state__secondary {
     left: 8px;
@@ -5865,13 +6019,15 @@ select option {
    */
   .header__search-bar-wrapper {
     visibility: hidden;
-    position: absolute; /* We move it outside of the document for easier positioning for other elements */
+    position: absolute;
+    /* We move it outside of the document for easier positioning for other elements */
     padding: 0 20px 0 20px;
     width: 100%;
     bottom: 0;
     left: 0;
     background: var(--header-background);
-    z-index: -1; /* because the position is absolutely positioned it get a higher z-index, but we need to revert it to avoid any trouble */
+    z-index: -1;
+    /* because the position is absolutely positioned it get a higher z-index, but we need to revert it to avoid any trouble */
     transition: visibility 0.25s ease-in-out, margin-bottom 0.25s ease-in-out;
   }
 
@@ -5936,12 +6092,12 @@ select option {
     display: none;
   }
 
-  .header__action-item--currency + .header__action-item--locale {
+  .header__action-item--currency+.header__action-item--locale {
     padding-left: 9px;
   }
 
   /* Not really beautiful but coulnd't find a better way */
-  .header__action-item.hidden-tablet-and-up:first-child + .header__action-item {
+  .header__action-item.hidden-tablet-and-up:first-child+.header__action-item {
     padding-left: 35px;
   }
 }
@@ -5963,7 +6119,8 @@ select option {
   .header__cart-icon {
     display: inline-block;
     margin-right: 22px;
-    top: -1px; /* Slight adjustment for the pixel perfect muahah */
+    top: -1px;
+    /* Slight adjustment for the pixel perfect muahah */
   }
 }
 
@@ -6047,7 +6204,7 @@ select option {
   height: 17px;
 }
 
-.search-bar__input.is-filled + .search-bar__input-clear {
+.search-bar__input.is-filled+.search-bar__input-clear {
   display: block;
 }
 
@@ -6060,7 +6217,8 @@ select option {
   display: block;
   height: 44px;
   padding: 0 30px 0 25px;
-  line-height: 43px; /* The -1px allows to account for rounding errors */
+  line-height: 43px;
+  /* The -1px allows to account for rounding errors */
 }
 
 .search-bar__filter-label svg {
@@ -6131,7 +6289,7 @@ select option {
 
 /* To reduce the complexity of JavaScript and use Liquid as much as possible, the live search will output both
    the result for products and/or pages and blogs. We therefore then hide possible duplicate status in CSS */
-.search-bar__result-products ~ .search-bar__empty-state {
+.search-bar__result-products~.search-bar__empty-state {
   display: none;
 }
 
@@ -6146,7 +6304,7 @@ select option {
   height: 100%;
   overflow: auto;
   -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  overscroll-behavior: none;
 }
 
 .search-bar__menu-title,
@@ -6162,7 +6320,8 @@ select option {
   transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
 }
 
-.search-bar__menu-link:hover, .search-bar__menu-link:focus {
+.search-bar__menu-link:hover,
+.search-bar__menu-link:focus {
   background: var(--accent-background);
   color: var(--accent-color);
   outline: none;
@@ -6178,7 +6337,7 @@ select option {
   height: 100%;
   overflow: auto;
   -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  overscroll-behavior: none;
 }
 
 .search-bar__result-category {
@@ -6215,7 +6374,8 @@ select option {
 }
 
 .search-bar__image-container img {
-  color: transparent; /* allows to remove the alt on Firefox during image loading */
+  color: transparent;
+  /* allows to remove the alt on Firefox during image loading */
 }
 
 .search-bar__item-info {
@@ -6237,7 +6397,8 @@ select option {
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 
-.search-bar__result-link:hover, .search-bar__result-link:focus {
+.search-bar__result-link:hover,
+.search-bar__result-link:focus {
   color: var(--accent-color);
   background: var(--accent-background);
   outline: none;
@@ -6291,8 +6452,10 @@ select option {
   }
 
   .search-bar__inner {
-    max-height: 0; /* This is needed to fix a bug on iOS, DO NOT REMOVE */
-    height: calc(100vh - calc(44px - 18px)); /* 18px is padding around input element */
+    max-height: 0;
+    /* This is needed to fix a bug on iOS, DO NOT REMOVE */
+    height: calc(100vh - calc(44px - 18px));
+    /* 18px is padding around input element */
     top: 100%;
   }
 
@@ -6358,7 +6521,8 @@ select option {
   }
 
   .search-bar__inner {
-    width: calc(100% - 40px); /* we do a little trick here to being able to use overflow hidden while still displaying box-shadow */
+    width: calc(100% - 40px);
+    /* we do a little trick here to being able to use overflow hidden while still displaying box-shadow */
     top: 100%;
     left: -5px;
   }
@@ -6370,7 +6534,8 @@ select option {
   }
 
   .search-bar__submit .icon--search {
-    top: 1px; /* Fix a small inconsistency in alignment I can't understand (seems to be due to half-pixel issue) */
+    top: 1px;
+    /* Fix a small inconsistency in alignment I can't understand (seems to be due to half-pixel issue) */
   }
 
   .search-bar__result-category {
@@ -6429,6 +6594,7 @@ select option {
     -webkit-appearance: none;
   }
 }
+
 .map {
   padding: 0 20px;
   background: var(--secondary-background);
@@ -6476,7 +6642,8 @@ select option {
 .map__store-address {
   margin-bottom: 15px;
 }
-.map__store-address > p {
+
+.map__store-address>p {
   margin-bottom: 0 !important;
 }
 
@@ -6544,6 +6711,7 @@ select option {
     margin-bottom: 22px;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * MEDIA API
@@ -6558,123 +6726,166 @@ select option {
   /* stylelint-disable-next-line */
   /* stylelint-disable-next-line */
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__video-wrapper {
   background-color: transparent;
 }
+
 .plyr.plyr--full-ui.plyr--video:-webkit-full-screen .plyr__video-wrapper .plyr.plyr--full-ui.plyr--video:-webkit-full-screen .plyr__poster {
   background-color: #000;
 }
+
 .plyr.plyr--full-ui.plyr--video:-ms-fullscreen .plyr__video-wrapper .plyr.plyr--full-ui.plyr--video:-ms-fullscreen .plyr__poster {
   background-color: #000;
 }
+
 .plyr.plyr--full-ui.plyr--video:fullscreen .plyr__video-wrapper .plyr.plyr--full-ui.plyr--video:fullscreen .plyr__poster {
   background-color: #000;
 }
-.plyr.plyr--full-ui.plyr--video:-webkit-full-screen .plyr__video-wrapper, .plyr.plyr--full-ui.plyr--video:-webkit-full-screen .plyr__poster {
+
+.plyr.plyr--full-ui.plyr--video:-webkit-full-screen .plyr__video-wrapper,
+.plyr.plyr--full-ui.plyr--video:-webkit-full-screen .plyr__poster {
   background-color: #000;
 }
-.plyr.plyr--full-ui.plyr--video:-moz-full-screen .plyr__video-wrapper, .plyr.plyr--full-ui.plyr--video:-moz-full-screen .plyr__poster {
+
+.plyr.plyr--full-ui.plyr--video:-moz-full-screen .plyr__video-wrapper,
+.plyr.plyr--full-ui.plyr--video:-moz-full-screen .plyr__poster {
   background-color: #000;
 }
-.plyr.plyr--full-ui.plyr--video:-ms-fullscreen .plyr__video-wrapper, .plyr.plyr--full-ui.plyr--video:-ms-fullscreen .plyr__poster {
+
+.plyr.plyr--full-ui.plyr--video:-ms-fullscreen .plyr__video-wrapper,
+.plyr.plyr--full-ui.plyr--video:-ms-fullscreen .plyr__poster {
   background-color: #000;
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr--fullscreen-fallback .plyr__video-wrapper,
 .plyr.plyr--full-ui.plyr--video .plyr--fullscreen-fallback .plyr__poster {
   background-color: #000;
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__controls {
   background-color: var(--secondary-background);
   border-color: rgba(var(--text-color-rgb), 0.05);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__control.plyr__control--overlaid {
   background-color: var(--secondary-background);
   border-color: rgba(var(--text-color-rgb), 0.05);
 }
-.plyr.plyr--full-ui.plyr--video .plyr__control.plyr__control--overlaid.plyr__tab-focus, .plyr.plyr--full-ui.plyr--video .plyr__control.plyr__control--overlaid:hover {
+
+.plyr.plyr--full-ui.plyr--video .plyr__control.plyr__control--overlaid.plyr__tab-focus,
+.plyr.plyr--full-ui.plyr--video .plyr__control.plyr__control--overlaid:hover {
   color: rgba(var(--text-color-rgb) 0.55);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]::-moz-range-thumb {
   box-shadow: 2px 0 0 0 var(--secondary-background);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]::-ms-thumb {
   box-shadow: 2px 0 0 0 var(--secondary-background);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]::-webkit-slider-thumb {
   box-shadow: 2px 0 0 0 var(--secondary-background);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]::-webkit-slider-runnable-track {
   background-image: linear-gradient(to right, currentColor 0, rgba(var(--text-color-rgb) 0.6)) 0);
   background-image: linear-gradient(to right, currentColor var(--value, 0), rgba(var(--text-color-rgb) 0.6)) var(--value, 0));
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]::-moz-range-track {
   background-color: rgba(var(--text-color-rgb) 0.6);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]::-ms-fill-upper {
   background-color: rgba(var(--text-color-rgb) 0.6);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range].plyr__tab-focus::-webkit-slider-runnable-track {
   box-shadow: 0 0 0 4px rgba(var(--text-color-rgb) 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range].plyr__tab-focus::-moz-range-track {
   box-shadow: 0 0 0 4px rgba(var(--text-color-rgb) 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range].plyr__tab-focus::-ms-track {
   box-shadow: 0 0 0 4px rgba(var(--text-color-rgb) 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]:active::-moz-range-thumb {
   box-shadow: 0 0 0 3px rgba(var(--text-color-rgb) 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]:active::-ms-thumb {
   box-shadow: 0 0 0 3px rgba(var(--text-color-rgb) 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress input[type=range]:active::-webkit-slider-thumb {
   box-shadow: 0 0 0 3px rgba(var(--text-color-rgb) 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress .plyr__tooltip {
   background-color: var(--text-color);
   color: var(--secondary-background);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__progress .plyr__tooltip::before {
   border-top-color: var(--text-color);
 }
+
 .plyr.plyr--full-ui.plyr--video.plyr--loading .plyr__progress__buffer {
   background-image: linear-gradient(-45deg, rgba(var(--text-color-rgb) 0.6) 25%, transparent 25%, transparent 50%, rgba(var(--text-color-rgb) 0.6) 50%, rgba(var(--text-color-rgb) 0.6) 75%, transparent 75%, transparent);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range] {
   color: var(--secondary-background);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-moz-range-thumb {
   box-shadow: 2px 0 0 0 var(--text-color);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-ms-thumb {
   box-shadow: 2px 0 0 0 var(--text-color);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-webkit-slider-thumb {
   box-shadow: 2px 0 0 0 var(--text-color);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-webkit-slider-runnable-track {
   background-image: linear-gradient(to right, currentColor 0, rgba(var(--secondary-background-rgb), 0.6) 0);
   background-image: linear-gradient(to right, currentColor var(--value, 0), rgba(var(--secondary-background-rgb), 0.6) var(--value, 0));
 }
-.plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-moz-range-track, .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-ms-fill-upper {
+
+.plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-moz-range-track,
+.plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]::-ms-fill-upper {
   background-color: rgba(var(--secondary-background-rgb), 0.6);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range].plyr__tab-focus::-webkit-slider-runnable-track {
   box-shadow: 0 0 0 4px rgba(var(--secondary-background-rgb), 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range].plyr__tab-focus::-moz-range-track {
   box-shadow: 0 0 0 4px rgba(var(--secondary-background-rgb), 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range].plyr__tab-focus::-ms-track {
   box-shadow: 0 0 0 4px rgba(var(--secondary-background-rgb), 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]:active::-moz-range-thumb {
   box-shadow: 0 0 0 3px rgba(var(--secondary-background-rgb), 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]:active::-ms-thumb {
   box-shadow: 0 0 0 3px rgba(var(--secondary-background-rgb), 0.25);
 }
+
 .plyr.plyr--full-ui.plyr--video .plyr__volume input[type=range]:active::-webkit-slider-thumb {
   box-shadow: 0 0 0 3px rgba(var(--secondary-background-rgb), 0.25);
 }
@@ -6683,24 +6894,32 @@ select option {
   background: var(--secondary-background);
   border-color: rgba(var(--text-color-rgb) 0.05);
 }
+
 .shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button {
   color: var(--text-color);
 }
+
 .shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--control:hover {
   color: rgba(var(--text-color-rgb) 0.55);
 }
-.shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--control:active, .shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--control.focus-visible:focus {
+
+.shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--control:active,
+.shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--control.focus-visible:focus {
   color: rgba(var(--text-color-rgb) 0.55);
   background: rgba(var(--text-color-rgb) 0.05);
 }
+
 .shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--control:not(:last-child):after {
   border-color: rgba(var(--text-color-rgb) 0.05);
 }
+
 .shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--poster {
   background: var(--secondary-background);
   border-color: rgba(var(--text-color-rgb) 0.05);
 }
-.shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--poster:hover, .shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--poster:focus {
+
+.shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--poster:hover,
+.shopify-model-viewer-ui.shopify-model-viewer-ui .shopify-model-viewer-ui__button--poster:focus {
   color: rgba(var(--text-color-rgb) 0.55);
 }
 
@@ -6714,6 +6933,7 @@ select option {
   position: relative;
   cursor: pointer;
 }
+
 .video-wrapper::after {
   content: "";
   display: block;
@@ -6737,6 +6957,7 @@ select option {
 .video-wrapper--native::after {
   display: none;
 }
+
 .video-wrapper--native .plyr,
 .video-wrapper--native video {
   position: absolute;
@@ -6745,6 +6966,7 @@ select option {
   width: 100%;
   height: 100%;
 }
+
 .video-wrapper--native .plyr__video-wrapper,
 .video-wrapper--native video {
   height: 100%;
@@ -6767,9 +6989,9 @@ select option {
 
 .video-wrapper__image {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   font-family: "object-fit: cover; object-position: center";
   /* IE 11 polyfill */
 }
@@ -6816,7 +7038,8 @@ select option {
 .video-item .video-wrapper iframe {
   visibility: hidden;
   height: 0;
-  width: 0; /* setting dimensions to zero allows to fix a bug in Safari iOS on which the iframe will capture all the clicks */
+  width: 0;
+  /* setting dimensions to zero allows to fix a bug in Safari iOS on which the iframe will capture all the clicks */
 }
 
 .video-item.is-playing .video-wrapper__image-wrapper {
@@ -6848,6 +7071,7 @@ select option {
   width: 100%;
   height: 100%;
 }
+
 .mosaic {
   margin: 0 -10px -20px -10px;
 }
@@ -6856,18 +7080,19 @@ select option {
   padding: 0 10px 20px 10px;
 }
 
-.mosaic__item > :first-child {
+.mosaic__item> :first-child {
   min-height: 240px;
 }
 
-.mosaic--large .mosaic__item > :first-child {
+.mosaic--large .mosaic__item> :first-child {
   min-height: 280px;
 }
 
 @media screen and (max-width: 999px) {
+
   /* On mobile we increase the height of some elements (so that elements that appear bigger on desktop also appear bigger on mobile */
-  .mosaic--two-columns .mosaic__column:first-child .mosaic__item > :first-child,
-  .mosaic--three-columns .mosaic__column:nth-child(2) .mosaic__item > :first-child {
+  .mosaic--two-columns .mosaic__column:first-child .mosaic__item> :first-child,
+  .mosaic--three-columns .mosaic__column:nth-child(2) .mosaic__item> :first-child {
     min-height: 340px;
   }
 }
@@ -6899,17 +7124,17 @@ select option {
     flex: 1 0 auto;
   }
 
-  .mosaic__item > :first-child {
+  .mosaic__item> :first-child {
     flex: 1 0 auto;
     height: 100%;
     min-height: 260px;
   }
 
-  .mosaic--small .mosaic__item > :first-child {
+  .mosaic--small .mosaic__item> :first-child {
     min-height: 225px;
   }
 
-  .mosaic--large .mosaic__item > :first-child {
+  .mosaic--large .mosaic__item> :first-child {
     min-height: 300px;
   }
 
@@ -6923,6 +7148,7 @@ select option {
     flex-grow: 1.38;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * DROPDOWN MENU
@@ -6985,7 +7211,7 @@ select option {
   max-height: calc(100vh - var(--header-height, 0px) - var(--announcement-bar-height, 0px) - 40px);
   overflow: auto;
   -ms-scroll-chaining: none;
-      overscroll-behavior: contain;
+  overscroll-behavior: contain;
 }
 
 /* We have a way to set a max height for browsers supporting CSS variables */
@@ -6995,7 +7221,7 @@ select option {
     max-height: calc(100vh - var(--distance-to-top, 0px) - 40px);
     overflow: auto;
     -ms-scroll-chaining: none;
-        overscroll-behavior: contain;
+    overscroll-behavior: contain;
   }
 }
 
@@ -7049,7 +7275,8 @@ select option {
 /* Handle sub-levels */
 .nav-dropdown .nav-dropdown {
   left: 100%;
-  top: -17px; /* 16px + 1px of border */
+  top: -17px;
+  /* 16px + 1px of border */
   margin-top: 0;
   min-width: 0;
   border-radius: 0 3px 3px 0;
@@ -7068,7 +7295,8 @@ select option {
 }
 
 .nav-dropdown .nav-dropdown--floating {
-  top: -16px; /* floating dropdown do not have border so there is one less pixel */
+  top: -16px;
+  /* floating dropdown do not have border so there is one less pixel */
   border-left: 1px solid var(--border-color);
 }
 
@@ -7125,7 +7353,7 @@ select option {
   text-align: center;
 }
 
-.mega-menu__promo + .mega-menu__promo {
+.mega-menu__promo+.mega-menu__promo {
   margin-left: 20px;
 }
 
@@ -7153,6 +7381,7 @@ select option {
 .mega-menu:not(.mega-menu--floating) .mega-menu__column:first-child {
   margin-left: 0 !important;
 }
+
 .mega-menu:not(.mega-menu--floating) .mega-menu__column:last-child {
   margin-right: 0 !important;
 }
@@ -7179,7 +7408,8 @@ select option {
 }
 
 .mega-menu__promo .aspect-ratio {
-  transform: scale(1.01); /* This is necessary to fix an issue with rounding pixels on Chrome */
+  transform: scale(1.01);
+  /* This is necessary to fix an issue with rounding pixels on Chrome */
   transition: transform 0.6s ease-in-out;
 }
 
@@ -7208,7 +7438,7 @@ select option {
   max-height: calc(100vh - var(--header-height, 0px) - var(--announcement-bar-height, 0px) - 40px);
   overflow: auto;
   -ms-scroll-chaining: none;
-      overscroll-behavior: contain;
+  overscroll-behavior: contain;
 }
 
 @media screen and (min-width: 1280px) {
@@ -7273,6 +7503,7 @@ select option {
   /*max-width: 0;*/
   /* We do that to prevent overflow as the real size is dynamically calculated based on available space */
 }
+
 .mega-menu--floating .mega-menu__title {
   margin-bottom: 5px;
 }
@@ -7330,7 +7561,7 @@ select option {
     position: static;
   }
 
-  .nav-bar__item > .nav-dropdown {
+  .nav-bar__item>.nav-dropdown {
     min-width: calc(100% + 20px);
   }
 
@@ -7378,7 +7609,8 @@ select option {
   left: 0;
   top: 100%;
   visibility: hidden;
-  max-height: 0; /* This is needed to fix a bug on iOS, DO NOT REMOVE */
+  max-height: 0;
+  /* This is needed to fix a bug on iOS, DO NOT REMOVE */
   z-index: 1;
   opacity: 0;
   color: var(--text-color);
@@ -7424,7 +7656,7 @@ select option {
   overflow-y: auto;
   overflow-x: hidden;
   -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
   transition: transform 500ms cubic-bezier(0.23, 1, 0.32, 1), visibility 500ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -7491,7 +7723,8 @@ select option {
 .mobile-menu__nav-list-toggle {
   width: 100%;
   text-align: left;
-  padding: 4px 0; /* allows to increase touch area a bit */
+  padding: 4px 0;
+  /* allows to increase touch area a bit */
 }
 
 .mobile-menu__nav-list-toggle svg {
@@ -7606,9 +7839,10 @@ select option {
   height: 22px;
 }
 
-.mobile-menu__help-wrapper + .mobile-menu__help-wrapper {
+.mobile-menu__help-wrapper+.mobile-menu__help-wrapper {
   margin-top: 18px;
 }
+
 /**
  * --------------------------------------------------------------------
  * LINE ITEM
@@ -7717,6 +7951,7 @@ select option {
 }
 
 @media screen and (max-width: 640px) {
+
   /* On mobile the line items are displayed differently on cart page */
   .line-item-table,
   .line-item-table tbody {
@@ -7739,7 +7974,8 @@ select option {
   }
 
   .line-item--stack .line-item__product-info {
-    display: block; /* Allows to disable the table layout */
+    display: block;
+    /* Allows to disable the table layout */
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -7813,7 +8049,7 @@ select option {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
 }
 
-.order-foot__item + .order-foot__item {
+.order-foot__item+.order-foot__item {
   border-top: 1px solid var(--border-color);
 }
 
@@ -7872,7 +8108,7 @@ select option {
  */
 
 .address-list,
-.address-list__item + .address-list__item {
+.address-list__item+.address-list__item {
   border-top: 1px solid var(--border-color);
 }
 
@@ -7885,20 +8121,21 @@ select option {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
 }
 
-.address-list__action-list > :last-child {
+.address-list__action-list> :last-child {
   margin-left: 18px;
 }
 
 @media screen and (max-width: 640px) {
+
   .address-list,
-  .address-list__item + .address-list__item {
+  .address-list__item+.address-list__item {
     display: block;
     position: relative;
     border-top: none;
   }
 
   .address-list::before,
-  .address-list__item + .address-list__item::before {
+  .address-list__item+.address-list__item::before {
     position: absolute;
     content: "";
     height: 1px;
@@ -7910,6 +8147,7 @@ select option {
 }
 
 @media screen and (min-width: 641px) {
+
   /* There is a slightly different adjustment on the design files just for this element, for no real reason, but well... let's respect the design with an ugly exception */
   .template-addresses .card__section--tight {
     padding-right: 20px;
@@ -7937,6 +8175,7 @@ select option {
     flex-basis: 33.333333%;
   }
 }
+
 .page__header {
   display: flex;
   justify-content: space-between;
@@ -7992,9 +8231,9 @@ select option {
   width: 100%;
   height: 100%;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   z-index: -1;
 }
 
@@ -8086,7 +8325,7 @@ select option {
   margin-left: 9px;
 }
 
-.page__navigation-item--prev + .page__navigation-item--next::before {
+.page__navigation-item--prev+.page__navigation-item--next::before {
   display: inline-block;
   content: "";
   width: 1px;
@@ -8115,7 +8354,7 @@ select option {
     justify-content: space-between;
   }
 
-  .page__sub-header + .page__header {
+  .page__sub-header+.page__header {
     margin-top: 20px;
   }
 
@@ -8144,6 +8383,7 @@ select option {
     align-items: center;
   }
 }
+
 .popover {
   position: absolute;
   width: 100vw;
@@ -8170,7 +8410,8 @@ select option {
 .popover[aria-hidden=false] {
   visibility: visible;
   opacity: 1;
-  transform: scale(1.001); /* Using 1.001 force browsers like Chrome to not perform some optimizations that may result in small visual glitch */
+  transform: scale(1.001);
+  /* Using 1.001 force browsers like Chrome to not perform some optimizations that may result in small visual glitch */
   transition: opacity 0.4s cubic-bezier(0, 1, 0.4, 1), transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1), visibility 0.4s linear;
 }
 
@@ -8210,11 +8451,12 @@ select option {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
 }
 
-.popover__secondary-action > p {
+.popover__secondary-action>p {
   margin-bottom: 0;
 }
 
 @media screen and (max-width: 640px) {
+
   .popover__panel-list,
   .popover__panel {
     height: 100% !important;
@@ -8356,6 +8598,7 @@ select option {
     top: calc(100% + 3px);
     right: -26px;
   }
+
   .popover--locale .icon--nav-triangle-borderless {
     right: 23px;
   }
@@ -8371,6 +8614,7 @@ select option {
   .popover--unlogged {
     right: -5px;
   }
+
   .popover--unlogged .icon--nav-triangle-borderless {
     right: 6px;
   }
@@ -8403,6 +8647,7 @@ select option {
     transform: scale(1) translateX(calc(50% - 7px));
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * PRODUCT GALLERY
@@ -8453,7 +8698,8 @@ select option {
 }
 
 .product-gallery__view-in-space {
-  background: rgba(var(--text-color-rgb), 0.08); /* This color is defined by Shopify spec */
+  background: rgba(var(--text-color-rgb), 0.08);
+  /* This color is defined by Shopify spec */
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -8489,7 +8735,7 @@ select option {
   vertical-align: baseline;
 }
 
-.product-gallery__carousel--zoomable ~ .product-gallery__zoom-notice {
+.product-gallery__carousel--zoomable~.product-gallery__zoom-notice {
   display: block;
   margin: 12px 0 6px 0;
   width: 100%;
@@ -8527,10 +8773,11 @@ select option {
 }
 
 @media screen and (min-width: 1000px) and (any-hover: hover) {
+
   /* Implementation note: starting from version 1.8, the theme now supports media type in Shopify (including 3D models
      and video. As a consequence, the "zoom" now only makes sense for "images", for which the slideshow becomes draggable.
      We therefore scope this so that the notice is only shown for images */
-  .product-gallery__carousel--zoomable ~ .product-gallery__zoom-notice {
+  .product-gallery__carousel--zoomable~.product-gallery__zoom-notice {
     margin-top: 26px;
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
   }
@@ -8582,7 +8829,9 @@ select option {
 }
 
 @media screen and (max-width: 999px) {
-  .product-gallery__thumbnail-list::after, .product-gallery__thumbnail-list::before {
+
+  .product-gallery__thumbnail-list::after,
+  .product-gallery__thumbnail-list::before {
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -8612,14 +8861,18 @@ select option {
   .product-gallery__thumbnail-list {
     position: relative;
     z-index: 1;
-    margin: -2px 0 -2px -3px; /* negative to align the top edge to the featured image */
+    margin: -2px 0 -2px -3px;
+    /* negative to align the top edge to the featured image */
     max-height: 450px;
-    width: 96px; /* Width + margin */
+    width: 96px;
+    /* Width + margin */
     overflow: auto;
-    -ms-overflow-style: none; /* IE 11 */
-    scrollbar-width: none; /* Firefox 64 */
+    -ms-overflow-style: none;
+    /* IE 11 */
+    scrollbar-width: none;
+    /* Firefox 64 */
     -ms-scroll-chaining: none;
-        overscroll-behavior: contain;
+    overscroll-behavior: contain;
   }
 
   .product-gallery__thumbnail-list::-webkit-scrollbar {
@@ -8639,7 +8892,8 @@ select option {
 
 .product-meta {
   position: relative;
-  margin: -11px 0 5px 0; /* Negative margin is to take into account for the padding */
+  margin: -11px 0 5px 0;
+  /* Negative margin is to take into account for the padding */
 }
 
 .product-meta__title {
@@ -8656,7 +8910,7 @@ select option {
   font-size: 0;
 }
 
-.product-meta__label-list .product-label + .product-label {
+.product-meta__label-list .product-label+.product-label {
   margin-left: 5px;
 }
 
@@ -8673,7 +8927,7 @@ select option {
   text-transform: uppercase;
 }
 
-.product-meta__vendor + .product-meta__sku::before {
+.product-meta__vendor+.product-meta__sku::before {
   display: inline-block;
   position: relative;
   content: "";
@@ -8697,7 +8951,7 @@ select option {
   opacity: 0.35;
 }
 
-.card__separator + .product-meta__share-buttons {
+.card__separator+.product-meta__share-buttons {
   margin-top: 0;
 }
 
@@ -8711,13 +8965,14 @@ select option {
 }
 
 /* On featured product section it can be configured to be shown after the form */
-.product-form__payment-container + .product-meta__description,
-.product-form__payment-container + .product-meta__text {
+.product-form__payment-container+.product-meta__description,
+.product-form__payment-container+.product-meta__text {
   margin-top: 25px;
   margin-bottom: 0;
 }
 
 @media screen and (min-width: 641px) {
+
   /*
   IMPLEMENTATION NOTE: there are a lot of manual adjustments here with negative margins, depending on which elements are here or not. This is not
                        really something I'm really happy with as it makes editing more complex. However designer absolutely wanted a pixel-perfect
@@ -8727,7 +8982,7 @@ select option {
     margin-top: 0;
   }
 
-  .product-meta__label-list + .product-meta__share-buttons {
+  .product-meta__label-list+.product-meta__share-buttons {
     margin-top: 22px;
   }
 
@@ -8743,14 +8998,14 @@ select option {
     width: fit-content;
   }
 
-  .product-meta__reference ~ .product-meta__share-buttons,
-  .product-meta__reviews-badge ~ .product-meta__share-buttons {
+  .product-meta__reference~.product-meta__share-buttons,
+  .product-meta__reviews-badge~.product-meta__share-buttons {
     position: absolute;
     right: 0;
     bottom: 0;
   }
 
-  .product-meta__reference + .product-meta__reviews-badge {
+  .product-meta__reference+.product-meta__reviews-badge {
     margin-top: 5px;
   }
 
@@ -8802,10 +9057,11 @@ select option {
   display: table-cell;
   padding-right: 12px;
   vertical-align: baseline;
-  white-space: nowrap; /* Fix for Japanese kanji */
+  white-space: nowrap;
+  /* Fix for Japanese kanji */
 }
 
-.product-form__info-item--quantity > * {
+.product-form__info-item--quantity>* {
   padding-top: 6px;
   vertical-align: middle;
 }
@@ -8820,7 +9076,7 @@ select option {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
 }
 
-.product-form__price-info + .product-form__price-info {
+.product-form__price-info+.product-form__price-info {
   margin-top: 0;
 }
 
@@ -8868,7 +9124,8 @@ shopify-payment-terms {
 
 @media screen and (min-width: 641px) {
   .product-form {
-    margin-top: -8px; /* for pixel perfect alignment... */
+    margin-top: -8px;
+    /* for pixel perfect alignment... */
   }
 
   .product-form__option-name {
@@ -8886,7 +9143,7 @@ shopify-payment-terms {
     margin: -9px;
   }
 
-  .product-form__payment-container > * {
+  .product-form__payment-container>* {
     flex: none;
     width: calc(50% - 18px);
     margin: 9px;
@@ -8922,7 +9179,7 @@ shopify-payment-terms {
   min-height: 48px;
 }
 
-.shopify-payment-button__button--branded .shopify-cleanslate > div {
+.shopify-payment-button__button--branded .shopify-cleanslate>div {
   border-radius: 2px !important;
 }
 
@@ -8984,12 +9241,13 @@ shopify-payment-terms {
 }
 
 @media screen and (max-width: 999px) {
+
   /* we have a logic on desktop with overflow scroller and we must force it to disabled on mobile */
   .product-block-list__wrapper {
     min-height: 0 !important;
   }
 
-  .product-block-list__item--info > .card {
+  .product-block-list__item--info>.card {
     top: 0 !important;
   }
 }
@@ -9017,6 +9275,7 @@ shopify-payment-terms {
   .product-block-list--medium .product-block-list__wrapper {
     width: calc(55% - 15px);
   }
+
   .product-block-list--medium .product-block-list__item--info {
     width: calc(45% - 15px);
   }
@@ -9024,6 +9283,7 @@ shopify-payment-terms {
   .product-block-list--large .product-block-list__wrapper {
     width: calc(60% - 15px);
   }
+
   .product-block-list--large .product-block-list__item--info {
     width: calc(40% - 15px);
   }
@@ -9051,21 +9311,22 @@ shopify-payment-terms {
     table-layout: fixed;
   }
 
-  .featured-product > * {
+  .featured-product>* {
     display: table-cell;
     vertical-align: top;
     width: 50%;
   }
 
-  .featured-product > :first-child {
+  .featured-product> :first-child {
     border-radius: 3px 0 0 3px;
   }
 
-  .featured-product > :last-child {
+  .featured-product> :last-child {
     border-radius: 0 3px 3px 0;
     border-left: none;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * PRODUCT LABEL
@@ -9130,7 +9391,7 @@ shopify-payment-terms {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 16px));
   text-decoration: line-through;
   -webkit-text-decoration-color: rgba(var(--text-color-rgb), 0.7);
-          text-decoration-color: rgba(var(--text-color-rgb), 0.7);
+  text-decoration-color: rgba(var(--text-color-rgb), 0.7);
 }
 
 /**
@@ -9193,11 +9454,11 @@ shopify-payment-terms {
   transition: width 1.15s ease-in-out;
 }
 
-.inventory--high + .inventory-bar > .inventory-bar__progress {
+.inventory--high+.inventory-bar>.inventory-bar__progress {
   background: var(--product-in-stock-color);
 }
 
-.inventory--low + .inventory-bar > .inventory-bar__progress {
+.inventory--low+.inventory-bar>.inventory-bar__progress {
   background: var(--product-low-stock-color);
 }
 
@@ -9218,7 +9479,8 @@ shopify-payment-terms {
  */
 
 .color-swatch-list {
-  margin: -2px -6px 0 -6px; /* We have to take into account the box-shadow and inner spacing added when an element is active */
+  margin: -2px -6px 0 -6px;
+  /* We have to take into account the box-shadow and inner spacing added when an element is active */
   padding-left: 4px;
 }
 
@@ -9279,7 +9541,7 @@ shopify-payment-terms {
   margin-left: 14px;
 }
 
-.color-swatch__radio:checked + .color-swatch__item::after,
+.color-swatch__radio:checked+.color-swatch__item::after,
 .color-swatch__button.is-selected .color-swatch__item::after {
   position: absolute;
   content: "";
@@ -9301,7 +9563,7 @@ shopify-payment-terms {
 }
 
 /* The view more is used on listing, to restrict the number of displayed swatches */
-.color-swatch--view-more ~ .color-swatch {
+.color-swatch--view-more~.color-swatch {
   display: none;
 }
 
@@ -9315,7 +9577,8 @@ shopify-payment-terms {
 
 /** Large list variation **/
 .color-swatch-list--large {
-  margin: -4px -8px 0 -8px; /* We have to take into account the box-shadow and inner spacing added when an element is active */
+  margin: -4px -8px 0 -8px;
+  /* We have to take into account the box-shadow and inner spacing added when an element is active */
 }
 
 .color-swatch-list--large .color-swatch {
@@ -9329,7 +9592,8 @@ shopify-payment-terms {
 
 /** Stack list variation **/
 .color-swatch-list--stack {
-  margin: -3px -7px 0 -7px; /* We have to take into account the box-shadow and inner spacing added when an element is active */
+  margin: -3px -7px 0 -7px;
+  /* We have to take into account the box-shadow and inner spacing added when an element is active */
 }
 
 .color-swatch-list--stack .color-swatch__item {
@@ -9371,7 +9635,8 @@ shopify-payment-terms {
  */
 
 .block-swatch-list {
-  margin: -3px -4px 0 -4px; /* We need to take into account the box-shadow height when element is active */
+  margin: -3px -4px 0 -4px;
+  /* We need to take into account the box-shadow height when element is active */
   padding-left: 2px;
 }
 
@@ -9398,7 +9663,7 @@ shopify-payment-terms {
   box-shadow: 0 1px 1px rgba(var(--border-color-rgb), 0.25);
 }
 
-.block-swatch__radio:checked + .block-swatch__item {
+.block-swatch__radio:checked+.block-swatch__item {
   box-shadow: 0 0 0 1px var(--accent-color);
   border-color: var(--accent-color);
   background: rgba(var(--accent-color-rgb), 0.06);
@@ -9457,7 +9722,7 @@ shopify-payment-terms {
   display: none;
 }
 
-.variant-swatch__radio:checked + .variant-swatch__item {
+.variant-swatch__radio:checked+.variant-swatch__item {
   border-color: var(--accent-color);
   border-radius: 3px;
 }
@@ -9501,7 +9766,8 @@ shopify-payment-terms {
   left: 0;
   top: 0;
   box-shadow: 1px 0 var(--border-color), 0 1px var(--border-color);
-  z-index: 2; /* needed to overlap the labels (if any) */
+  z-index: 2;
+  /* needed to overlap the labels (if any) */
   pointer-events: none;
 }
 
@@ -9526,7 +9792,7 @@ shopify-payment-terms {
   font-size: 0;
 }
 
-.product-item__label-list > .product-label {
+.product-item__label-list>.product-label {
   display: block;
   margin-bottom: 5px;
   border-radius: 0 3px 3px 0;
@@ -9569,13 +9835,14 @@ shopify-payment-terms {
   margin-bottom: 12px;
 }
 
-.product-item__title + .product-item__vendor {
+.product-item__title+.product-item__vendor {
   margin-bottom: 12px;
   margin-top: -4px;
 }
 
 .product-item__swatch-list {
-  margin: -2px 0 12px 0; /* On the collection page, we do not show more than one line */
+  margin: -2px 0 12px 0;
+  /* On the collection page, we do not show more than one line */
   white-space: nowrap;
   overflow: hidden;
 }
@@ -9612,6 +9879,7 @@ shopify-payment-terms {
 }
 
 @media screen and (any-hover: hover) {
+
   .product-item__image-wrapper--with-secondary .product-item__primary-image,
   .product-item__image-wrapper--with-secondary .product-item__secondary-image {
     transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
@@ -9620,9 +9888,9 @@ shopify-payment-terms {
   .product-item__image-wrapper--with-secondary .product-item__secondary-image {
     display: block;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     -o-object-position: center;
-       object-position: center;
+    object-position: center;
     visibility: hidden;
     opacity: 0;
   }
@@ -9682,8 +9950,8 @@ shopify-payment-terms {
   display: none;
 }
 
-.product-item--vertical .product-item__action-button--list-view-only + .product-item__action-button,
-.product-item--horizontal .product-item__action-button--list-view-only + .product-item__action-button {
+.product-item--vertical .product-item__action-button--list-view-only+.product-item__action-button,
+.product-item--horizontal .product-item__action-button--list-view-only+.product-item__action-button {
   margin-top: 0;
 }
 
@@ -9737,6 +10005,7 @@ shopify-payment-terms {
 }
 
 @media screen and (max-width: 640px) {
+
   .product-item--horizontal,
   .product-item--list {
     width: 100% !important;
@@ -9824,6 +10093,7 @@ shopify-payment-terms {
 .product-item--compact .product-item__reviews-badge {
   margin: 15px 0;
 }
+
 .promo-block {
   position: relative;
   display: flex;
@@ -9903,7 +10173,8 @@ shopify-payment-terms {
 .promo-block__image-wrapper--cover {
   background-size: cover !important;
   background-position: center !important;
-  transform: scale(1.01); /* The 1.01 is necessary to avoid some rounding issues on Chrome */
+  transform: scale(1.01);
+  /* The 1.01 is necessary to avoid some rounding issues on Chrome */
   transition: opacity 0.2s ease-in-out, transform 1.2s ease-in-out;
 }
 
@@ -9999,6 +10270,7 @@ shopify-payment-terms {
     margin-top: 8px;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * GENERAL
@@ -10016,7 +10288,8 @@ shopify-payment-terms {
 }
 
 .spr-icon.spr-icon::before {
-  display: none; /* allow the default image to not be loaded by Shopify Reviews */
+  display: none;
+  /* allow the default image to not be loaded by Shopify Reviews */
 }
 
 .spr-icon.spr-icon {
@@ -10045,9 +10318,9 @@ shopify-payment-terms {
     opacity: 1 !important;
     background: var(--product-review-star-color);
     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 832"><path d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z" fill-rule="nonzero"/></svg>');
-            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 832"><path d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z" fill-rule="nonzero"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 832"><path d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z" fill-rule="nonzero"/></svg>');
     -webkit-mask-size: cover;
-            mask-size: cover;
+    mask-size: cover;
   }
 
   .spr-icon.spr-icon-star-empty,
@@ -10056,7 +10329,7 @@ shopify-payment-terms {
   }
 }
 
-.spr-icon + .spr-icon {
+.spr-icon+.spr-icon {
   margin-left: 4px;
 }
 
@@ -10149,7 +10422,7 @@ shopify-payment-terms {
   border-top: 1px solid var(--border-color);
 }
 
-#shopify-product-reviews .spr-form-submitted + .spr-reviews {
+#shopify-product-reviews .spr-form-submitted+.spr-reviews {
   margin-top: 0;
   border-top: none;
 }
@@ -10161,7 +10434,7 @@ shopify-payment-terms {
   padding: 0;
 }
 
-#shopify-product-reviews .spr-review + .spr-review {
+#shopify-product-reviews .spr-review+.spr-review {
   margin-top: 32px;
 }
 
@@ -10219,14 +10492,15 @@ shopify-payment-terms {
 }
 
 #shopify-product-reviews .spr-review-reportreview:hover {
-  text-decoration: underline; /*text-underline-position: under;*/
+  text-decoration: underline;
+  /*text-underline-position: under;*/
 }
 
 #shopify-product-reviews .spr-form {
   padding: 0;
 }
 
-#shopify-product-reviews .spr-form > form {
+#shopify-product-reviews .spr-form>form {
   padding-top: 22px;
 }
 
@@ -10375,6 +10649,7 @@ shopify-payment-terms {
 }
 
 @media screen and (max-width: 640px) {
+
   #shopify-product-reviews .spr-form,
   #shopify-product-reviews .spr-reviews {
     margin-top: 24px;
@@ -10387,7 +10662,7 @@ shopify-payment-terms {
   }
 
   #shopify-product-reviews .spr-form::before,
-  #shopify-product-reviews .spr-form:not(.spr-form-submitted) + .spr-reviews::before,
+  #shopify-product-reviews .spr-form:not(.spr-form-submitted)+.spr-reviews::before,
   #shopify-product-reviews .spr-pagination::before {
     position: relative;
     content: "";
@@ -10397,7 +10672,7 @@ shopify-payment-terms {
     background: var(--border-color);
   }
 
-  #shopify-product-reviews .spr-pagination > div {
+  #shopify-product-reviews .spr-pagination>div {
     padding-top: 20px;
   }
 
@@ -10424,7 +10699,7 @@ shopify-payment-terms {
     width: auto;
   }
 
-  #shopify-product-reviews .spr-review + .spr-review {
+  #shopify-product-reviews .spr-review+.spr-review {
     margin-top: 41px;
   }
 
@@ -10460,8 +10735,10 @@ shopify-payment-terms {
     border-top: 1px solid var(--border-color);
   }
 }
+
 .rte {
-  word-break: break-word; /* Prevent long words to go outside the container */
+  word-break: break-word;
+  /* Prevent long words to go outside the container */
 }
 
 /* Simple, minimum clearfix added to every RTE text to avoid issue with float */
@@ -10531,7 +10808,7 @@ shopify-payment-terms {
   color: var(--link-color);
   transition: color 0.2s ease-in-out;
   -webkit-text-decoration: var(--text-link-decoration);
-          text-decoration: var(--text-link-decoration);
+  text-decoration: var(--text-link-decoration);
   text-underline-position: under;
 }
 
@@ -10539,19 +10816,22 @@ shopify-payment-terms {
   color: var(--link-color-hover);
 }
 
-.rte p + .button {
+.rte p+.button {
   margin-top: 1em;
 }
 
-.rte ul, .rte ol {
+.rte ul,
+.rte ol {
   margin-left: 18px;
 }
 
-.rte ul li, .rte ol li {
+.rte ul li,
+.rte ol li {
   position: relative;
 }
 
-.rte ul li:not(:last-child), .rte ol li:not(:last-child) {
+.rte ul li:not(:last-child),
+.rte ol li:not(:last-child) {
   margin-bottom: 5px;
 }
 
@@ -10601,6 +10881,7 @@ shopify-payment-terms {
     margin: 3em 0;
   }
 }
+
 .section {
   margin: 50px 0;
 }
@@ -10658,7 +10939,7 @@ shopify-payment-terms {
 }
 
 @media screen and (max-width: 640px) {
-  .section__header-stack > .section__title + * {
+  .section__header-stack>.section__title+* {
     margin-top: 10px;
   }
 }
@@ -10712,7 +10993,7 @@ shopify-payment-terms {
     transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
-  .section__header-stack > .section__title {
+  .section__header-stack>.section__title {
     margin: 0 16px 0 0;
   }
 }
@@ -10727,6 +11008,7 @@ shopify-payment-terms {
     right: 0;
   }
 }
+
 .slideshow {
   height: 400px;
   overflow: hidden;
@@ -10917,6 +11199,7 @@ shopify-payment-terms {
   .slideshow__slide-inner--bottom-right {
     text-align: right;
   }
+
   .slideshow__slide-inner--top-right .slideshow__content,
   .slideshow__slide-inner--middle-right .slideshow__content,
   .slideshow__slide-inner--bottom-right .slideshow__content {
@@ -10953,6 +11236,7 @@ shopify-payment-terms {
     height: 520px;
   }
 }
+
 .store-availability-container {
   margin-top: 26px;
 }
@@ -10995,7 +11279,7 @@ shopify-payment-terms {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
 }
 
-.store-availability-list__item + .store-availability-list__item {
+.store-availability-list__item+.store-availability-list__item {
   margin-top: 22px;
   padding-top: 20px;
   border-top: 1px solid var(--border-color);
@@ -11018,8 +11302,10 @@ shopify-payment-terms {
 }
 
 .store-availability-list__contact p {
-  margin-bottom: 0; /* Remove the margin of the formatted address by Shopify */
+  margin-bottom: 0;
+  /* Remove the margin of the formatted address by Shopify */
 }
+
 .team {
   margin-top: 45px;
   margin-bottom: 62px;
@@ -11134,6 +11420,7 @@ shopify-payment-terms {
   min-width: 105px;
   margin-top: 22px;
 }
+
 .text-with-icons__item {
   width: 100%;
   line-height: 1.6;
@@ -11157,7 +11444,7 @@ shopify-payment-terms {
   max-width: 30px;
 }
 
-.text-with-icons__content > p {
+.text-with-icons__content>p {
   margin-bottom: 0;
 }
 
@@ -11181,7 +11468,8 @@ shopify-payment-terms {
   }
 
   .text-with-icons--stacked::after {
-    content: ""; /* Disable Flickity */
+    content: "";
+    /* Disable Flickity */
   }
 }
 
@@ -11193,7 +11481,7 @@ shopify-payment-terms {
   }
 
   /* When it follows a page__header element we slightly move it up */
-  .page__header + .text-with-icons {
+  .page__header+.text-with-icons {
     margin-top: -5px;
   }
 
@@ -11275,6 +11563,7 @@ shopify-payment-terms {
     border-left: 1px solid var(--border-color);
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * CLEARFIX
@@ -11345,7 +11634,7 @@ shopify-payment-terms {
   margin: 5px;
 }
 
-.social-media__item > a {
+.social-media__item>a {
   display: block;
 }
 
@@ -11479,6 +11768,7 @@ shopify-payment-terms {
   margin-right: 25px;
   align-self: center;
 }
+
 .alert__ribbon svg {
   display: block;
   width: 24px;
@@ -11595,7 +11885,8 @@ shopify-payment-terms {
 @media screen and (max-width: 999px) {
   .scroller {
     overflow: hidden;
-    margin: 0 calc(-1 * var(--mobile-container-gutter)); /* On mobile we remove the container gutter to make sure the scroll is edge to edge */
+    margin: 0 calc(-1 * var(--mobile-container-gutter));
+    /* On mobile we remove the container gutter to make sure the scroll is edge to edge */
   }
 
   .scroller--flush {
@@ -11609,7 +11900,7 @@ shopify-payment-terms {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     -ms-scroll-snap-type: x mandatory;
-        scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
     white-space: nowrap;
   }
 }
@@ -11628,7 +11919,7 @@ shopify-payment-terms {
     overflow: visible;
   }
 
-  .scroller--mobile-only > .scroller__inner {
+  .scroller--mobile-only>.scroller__inner {
     padding-bottom: 0;
     margin-bottom: 0;
     overflow: visible;
@@ -11645,6 +11936,7 @@ shopify-payment-terms {
   0% {
     opacity: 0.45;
   }
+
   100% {
     opacity: 0.9;
   }
@@ -11654,6 +11946,7 @@ shopify-payment-terms {
   0% {
     opacity: 0.45;
   }
+
   100% {
     opacity: 0.9;
   }
@@ -11661,7 +11954,7 @@ shopify-payment-terms {
 
 .skeleton-container {
   -webkit-animation: skeletonShimmerAnimation 1s linear infinite alternate;
-          animation: skeletonShimmerAnimation 1s linear infinite alternate;
+  animation: skeletonShimmerAnimation 1s linear infinite alternate;
   will-change: opacity;
 }
 
@@ -11726,7 +12019,8 @@ shopify-payment-terms {
   height: 10px;
 }
 
-[aria-expanded=true] .plus-button::before, [aria-expanded=true] .plus-button::after {
+[aria-expanded=true] .plus-button::before,
+[aria-expanded=true] .plus-button::after {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
@@ -11850,7 +12144,8 @@ shopify-payment-terms {
 
 @media screen and (max-width: 640px) {
   .announcement-bar__inner {
-    text-align: center; /* Always centered on mobile no matter the setting */
+    text-align: center;
+    /* Always centered on mobile no matter the setting */
   }
 }
 
@@ -11873,7 +12168,8 @@ shopify-payment-terms {
   .announcement-bar__content--center {
     margin-left: auto;
     padding-left: 0px;
-    padding-left: var(--announcement-bar-button-width, 0px); /* We have to shift by the button width to center visually */
+    padding-left: var(--announcement-bar-button-width, 0px);
+    /* We have to shift by the button width to center visually */
   }
 
   .announcement-bar__button {
@@ -11997,7 +12293,8 @@ shopify-payment-terms {
 @media screen and (max-width: 999px) {
   .image-with-text__image-container {
     width: 100% !important;
-    order: -1; /* Make sure the image is always coming first on small screens */
+    order: -1;
+    /* Make sure the image is always coming first on small screens */
   }
 }
 
@@ -12009,7 +12306,8 @@ shopify-payment-terms {
   }
 
   .image-with-text__image-container {
-    max-width: 50%; /* Make sure that we constraint a maximum and minimum width no matter what the merchant choose to keep the text readable */
+    max-width: 50%;
+    /* Make sure that we constraint a maximum and minimum width no matter what the merchant choose to keep the text readable */
     min-width: 30%;
   }
 
@@ -12027,6 +12325,7 @@ shopify-payment-terms {
     text-align: right;
     padding-right: 60px;
   }
+
   .image-with-text__text-container:first-child .image-with-text__text-aligner {
     display: inline-block;
     text-align: left;
@@ -12099,14 +12398,15 @@ shopify-payment-terms {
   justify-content: center;
   align-items: center;
   flex: 0 0 auto;
-  width: 50%; /* we cannot use flex-basis due to a bug in IE11 as flex-basis does not take into account padding in this browser */
+  width: 50%;
+  /* we cannot use flex-basis due to a bug in IE11 as flex-basis does not take into account padding in this browser */
   box-shadow: 1px 0 var(--border-color), 0 1px var(--border-color);
   padding: 20px 10px;
   word-break: break-all;
   word-break: break-word;
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
   text-transform: none;
   transition: color 0.2s ease-in-out;
 }
@@ -12140,12 +12440,15 @@ shopify-payment-terms {
 @media screen and (min-width: 641px) {
   .quick-links__link {
     padding: 24px;
-    width: 33.333333%; /* we cannot use flex-basis due to a bug in IE11 as flex-basis does not take into account padding in this browser */
+    width: 33.333333%;
+    /* we cannot use flex-basis due to a bug in IE11 as flex-basis does not take into account padding in this browser */
   }
 }
+
 @media screen and (min-width: 1000px) {
   .quick-links__link {
-    width: 16.66666667%; /* we cannot use flex-basis due to a bug in IE11 as flex-basis does not take into account padding in this browser */
+    width: 16.66666667%;
+    /* we cannot use flex-basis due to a bug in IE11 as flex-basis does not take into account padding in this browser */
   }
 }
 
@@ -12326,7 +12629,8 @@ shopify-payment-terms {
 
 .layout .layout {
   margin-top: 18px;
-  margin-bottom: 0; /* nested layouts don't have margin bottom */
+  margin-bottom: 0;
+  /* nested layouts don't have margin bottom */
 }
 
 .layout__section {
@@ -12366,7 +12670,8 @@ shopify-payment-terms {
   }
 
   .layout__section {
-    margin: 0 15px; /* We need to use the individual properties instead of short hand due to a bug in IE11 */
+    margin: 0 15px;
+    /* We need to use the individual properties instead of short hand due to a bug in IE11 */
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 0;
@@ -12483,7 +12788,7 @@ shopify-payment-terms {
   padding: 20px;
 }
 
-.modal__header + .modal__content {
+.modal__header+.modal__content {
   padding-top: 30px;
 }
 
@@ -12592,6 +12897,7 @@ shopify-payment-terms {
   position: relative;
   vertical-align: middle;
 }
+
 .icon-state .icon-state__primary,
 .icon-state .icon-state__secondary {
   display: block;
@@ -12622,7 +12928,8 @@ shopify-payment-terms {
  * ----------------------------------------------------------------------------
  */
 
-@media (-moz-touch-enabled: 0), (hover: hover) {
+@media (-moz-touch-enabled: 0),
+(hover: hover) {
   [data-tooltip] {
     position: relative;
   }
@@ -12665,7 +12972,8 @@ shopify-payment-terms {
     box-shadow: -1px 1px 1px 0 rgba(0, 0, 0, 0.1);
   }
 
-  [data-tooltip]:hover::before, [data-tooltip]:hover::after {
+  [data-tooltip]:hover::before,
+  [data-tooltip]:hover::after {
     opacity: 1;
     visibility: visible;
   }
@@ -12733,7 +13041,7 @@ shopify-payment-terms {
 .quantity-selector__value {
   -webkit-appearance: none;
   -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   padding: 0 5px;
   min-width: 32px;
   text-align: center;
@@ -12957,6 +13265,7 @@ shopify-payment-terms {
 }
 
 @media screen and (min-width: 1000px) {
+
   /* On password there is no search bar so we increase the header */
   .template-password .header {
     padding-top: 30px;
@@ -13007,7 +13316,8 @@ shopify-payment-terms {
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
-.faq__item + .faq__item {
+
+.faq__item+.faq__item {
   border-top: none;
 }
 
@@ -13018,6 +13328,7 @@ shopify-payment-terms {
   width: 100%;
   text-align: left;
 }
+
 .faq__question .plus-button {
   margin-left: 40px;
 }
@@ -13059,9 +13370,11 @@ shopify-payment-terms {
     border: 1px solid var(--border-color);
     border-radius: 3px 3px 0 0;
   }
-  .faq__item + .faq__item {
+
+  .faq__item+.faq__item {
     border-radius: 0;
   }
+
   .faq__item:last-child {
     border-radius: 0 0 3px 3px;
   }
@@ -13072,7 +13385,7 @@ shopify-payment-terms {
     margin-bottom: 0;
   }
 
-  .faq__group + .faq__group {
+  .faq__group+.faq__group {
     margin-top: 50px;
   }
 }
@@ -13142,6 +13455,7 @@ shopify-payment-terms {
     right: 30px;
     top: 24px;
   }
+
   .popup-newsletter__close svg {
     width: 20px;
     height: 20px;
@@ -13318,7 +13632,8 @@ shopify-payment-terms {
   transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
 }
 
-.link-search-results__link:hover, .link-search-results__link:focus {
+.link-search-results__link:hover,
+.link-search-results__link:focus {
   background: var(--accent-background);
   color: var(--accent-color);
   outline: none;
@@ -13329,6 +13644,7 @@ shopify-payment-terms {
     margin-top: 60px;
   }
 }
+
 /**
  * --------------------------------------------------------------------
  * EXPANDABLE CONTENT
@@ -13379,7 +13695,8 @@ shopify-payment-terms {
   transition: transform 0.2s ease-in-out;
 }
 
-.expandable-content__toggle-icon::before, .expandable-content__toggle-icon::after {
+.expandable-content__toggle-icon::before,
+.expandable-content__toggle-icon::after {
   content: "";
   position: absolute;
   background: currentColor;
@@ -13465,7 +13782,8 @@ shopify-payment-terms {
 
 .price-range__input {
   flex: 1 0 0;
-  min-width: 0; /* Required for Firefox */
+  min-width: 0;
+  /* Required for Firefox */
 }
 
 .price-range__delimiter {
@@ -13495,7 +13813,7 @@ shopify-payment-terms {
   grid-auto-flow: column;
   grid-column-gap: 2px;
   -moz-column-gap: 2px;
-       column-gap: 2px;
+  column-gap: 2px;
 }
 
 .rating__star {
@@ -13514,6 +13832,7 @@ shopify-payment-terms {
   margin-left: 7px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
 }
+
 /**
  * --------------------------------------------------------------------
  * VALUE PICKER
@@ -13637,7 +13956,7 @@ shopify-payment-terms {
   max-height: 430px;
   overflow: auto;
   -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  overscroll-behavior: none;
   list-style: none;
 }
 
@@ -13646,7 +13965,8 @@ shopify-payment-terms {
   position: relative;
   width: 100%;
   text-align: left;
-  padding: 8px 50px 7px 20px; /* Designer does not like symmetry, sorry :D */
+  padding: 8px 50px 7px 20px;
+  /* Designer does not like symmetry, sorry :D */
 }
 
 .value-picker__choice-item svg {
@@ -13677,6 +13997,7 @@ shopify-payment-terms {
 
 /* On tablet and higher, the selector will look like a popover */
 @media screen and (min-width: 641px) {
+
   /* This is the wrapper class on which elements are positioned relatively on desktop */
   .value-picker-wrapper {
     position: relative;
@@ -13746,7 +14067,8 @@ shopify-payment-terms {
   }
 
   .value-picker__header {
-    display: none; /* Because of popover the context is clear and does not need header */
+    display: none;
+    /* Because of popover the context is clear and does not need header */
   }
 
   .value-picker__choice-list {
@@ -13799,19 +14121,88 @@ shopify-payment-terms {
     min-width: 0;
   }
 }
+
 /* Variant Description Styles */
-.product-meta__variant-description-container { margin: 20px 0; padding: 18px; background: #fcfcfc; border: 1px solid #e5e5e5; border-radius: 4px; transition: all 0.3s ease; }
-.product-meta__variant-description-title { display: block; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; color: #666; }
-.product-meta__variant-description-button { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
-.product-meta__variant-description-container.is-hidden { display: none !important; }
-.product-meta__variant-description-content { line-height: 1.6; font-size: 0.95em; }
+.product-meta__variant-description-container {
+  margin: 20px 0;
+  padding: 18px;
+  background: #fcfcfc;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.product-meta__variant-description-title {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 11px;
+  color: #666;
+}
+
+.product-meta__variant-description-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.product-meta__variant-description-container.is-hidden {
+  display: none !important;
+}
+
+.product-meta__variant-description-content {
+  line-height: 1.6;
+  font-size: 0.95em;
+}
 
 
 /* Specs Grid Layout */
-.product-specs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px; }
-.product-spec-item { display: flex; flex-direction: column; }
-.product-spec-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #666; margin-bottom: 5px; letter-spacing: 0.05em; }
-.product-spec-value { font-size: 14px; line-height: 1.4; color: #333; }
-@media screen and (max-width: 640px) { .product-specs-grid { grid-template-columns: 1fr; gap: 15px; } }
+.product-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 15px;
+  padding: 15px 0;
+  border-top: 1px solid var(--border-color);
+}
 
-.product-spec-item.is-hidden { display: none !important; }
+.product-spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-spec-label {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+
+.product-spec-value {
+  font-family: var(--text-font-family);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.product-spec-item.is-hidden {
+  display: none !important;
+}
+
+@media screen and (max-width: 640px) {
+  .product-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
