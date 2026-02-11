@@ -45,6 +45,13 @@
             "show_payment_button": true
           }
         },
+        "dimensions_KeQcfT": {
+          "type": "dimensions",
+          "settings": {
+            "title": "Dimensions",
+            "display_mode": "show_all"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -57,6 +64,7 @@
         "variant_selector",
         "variant_description_6arYXA",
         "buy_buttons",
+        "dimensions_KeQcfT",
         "description"
       ],
       "settings": {
