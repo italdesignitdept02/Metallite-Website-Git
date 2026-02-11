@@ -20,9 +20,12 @@
 
           {%- when 'dimensions' -%}
             {%- assign dim_val = selected_variant.metafields.custom.dimention_specification.value | default: selected_variant.metafields.custom.dimention_specification | default: product.metafields.custom.dimention_specification.value | default: product.metafields.custom.dimention_specification -%}
-            {%- assign dim_stripped = dim_val | strip_html | strip -%}
+            {%- assign mat_val = selected_variant.metafields.custom.material.value | default: selected_variant.metafields.custom.material | default: product.metafields.custom.material.value | default: product.metafields.custom.material -%}
             
-            <div class="product-meta__dimensions-container {% if dim_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
+            {%- assign dim_stripped = dim_val | strip_html | strip -%}
+            {%- assign mat_stripped = mat_val | strip_html | strip -%}
+            
+            <div class="product-meta__dimensions-container {% if dim_stripped == blank and mat_stripped == blank %}is-hidden{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.display_mode == 'collapse' -%}
                 <button class="product-meta__variant-description-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="dimensions-{{ section.id }}-{{ block.id }}">
                   <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>
@@ -31,8 +34,20 @@
 
                 <div id="dimensions-{{ section.id }}-{{ block.id }}" class="card__collapsible">
                   <div class="card__collapsible-content">
-                    <div class="product-meta__dimensions-content rte">
-                      {{ dim_val | newline_to_br }}
+                    <div class="product-specs-grid">
+                      {%- if dim_stripped != blank -%}
+                        <div class="product-spec-item" data-spec-type="dimension">
+                          <span class="product-spec-label">Dimensions</span>
+                          <div class="product-spec-value product-meta__dimensions-content rte">{{ dim_val | newline_to_br }}</div>
+                        </div>
+                      {%- endif -%}
+                      
+                      {%- if mat_stripped != blank -%}
+                        <div class="product-spec-item" data-spec-type="material">
+                          <span class="product-spec-label">Material</span>
+                          <div class="product-spec-value product-meta__material-content rte">{{ mat_val | newline_to_br }}</div>
+                        </div>
+                      {%- endif -%}
                     </div>
                   </div>
                 </div>
@@ -41,8 +56,16 @@
                   <span class="product-meta__variant-description-title heading">{{ block.settings.title | escape }}</span>
                 {%- endif -%}
 
-                <div class="product-meta__dimensions-content rte">
-                  {{ dim_val | newline_to_br }}
+                <div class="product-specs-grid">
+                  <div class="product-spec-item {% if dim_stripped == blank %}is-hidden{% endif %}" data-spec-type="dimension">
+                    <span class="product-spec-label">Dimensions</span>
+                    <div class="product-spec-value product-meta__dimensions-content rte">{{ dim_val | newline_to_br }}</div>
+                  </div>
+                  
+                  <div class="product-spec-item {% if mat_stripped == blank %}is-hidden{% endif %}" data-spec-type="material">
+                    <span class="product-spec-label">Material</span>
+                    <div class="product-spec-value product-meta__material-content rte">{{ mat_val | newline_to_br }}</div>
+                  </div>
                 </div>
               {%- endif -%}
             </div>
@@ -164,7 +187,13 @@
           "{{ variant.id }}": {{ variant.metafields.custom.dimention_specification.value | default: variant.metafields.custom.dimention_specification | json }}{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
       },
-      "product_dimensions": {{ product.metafields.custom.dimention_specification.value | default: product.metafields.custom.dimention_specification | json }}
+      "variant_materials": {
+        {%- for variant in product.variants -%}
+          "{{ variant.id }}": {{ variant.metafields.custom.material.value | default: variant.metafields.custom.material | json }}{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      },
+      "product_dimensions": {{ product.metafields.custom.dimention_specification.value | default: product.metafields.custom.dimention_specification | json }},
+      "product_materials": {{ product.metafields.custom.material.value | default: product.metafields.custom.material | json }}
       {%- if variant_selector_block.settings.show_inventory_quantity -%}
         ,"inventories": {
           {%- for variant in product.variants -%}
@@ -223,10 +252,38 @@
         updateDynamicContent(descContainer, descContents, descVal);
       }
 
-      // Handle Dimensions
+      // Handle Dimensions & Materials (2-column grid)
+      const dimContainer = document.querySelector('.product-meta__dimensions-container');
       if (dimContainer) {
         const dimVal = (productData.variant_dimensions && productData.variant_dimensions[variant.id]) ? productData.variant_dimensions[variant.id] : productData.product_dimensions;
-        updateDynamicContent(dimContainer, dimContents, dimVal);
+        const matVal = (productData.variant_materials && productData.variant_materials[variant.id]) ? productData.variant_materials[variant.id] : productData.product_materials;
+
+        const dimContents = document.querySelectorAll('.product-meta__dimensions-content');
+        const matContents = document.querySelectorAll('.product-meta__material-content');
+        
+        const dimWrapper = document.querySelector('[data-spec-type="dimension"]');
+        const matWrapper = document.querySelector('[data-spec-type="material"]');
+
+        updateSyncField(dimWrapper, dimContents, dimVal);
+        updateSyncField(matWrapper, matContents, matVal);
+
+        // Hide entire container if both are empty
+        if ((!dimVal || dimVal === "") && (!matVal || matVal === "")) {
+          dimContainer.classList.add('is-hidden');
+        } else {
+          dimContainer.classList.remove('is-hidden');
+        }
+      }
+
+      function updateSyncField(wrapper, contentAreas, value) {
+        if (value && value.trim() !== "") {
+          contentAreas.forEach(area => {
+            area.innerHTML = value.replace(/\n/g, '<br>');
+          });
+          if(wrapper) wrapper.classList.remove('is-hidden');
+        } else {
+          if(wrapper) wrapper.classList.add('is-hidden');
+        }
       }
 
       function updateDynamicContent(container, contentAreas, value) {
