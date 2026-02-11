@@ -14122,24 +14122,25 @@ shopify-payment-terms {
   }
 }
 
-/* Variant Description Styles */
+/* Variant Details Styles */
 .product-meta__variant-description-container {
   margin: 20px 0;
   padding: 18px;
-  background: #fcfcfc;
-  border: 1px solid #e5e5e5;
+  background: var(--secondary-background);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .product-meta__variant-description-title {
   display: block;
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
   margin-bottom: 12px;
-  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1rem;
   font-size: 11px;
-  color: #666;
+  color: var(--accent-color);
 }
 
 .product-meta__variant-description-button {
@@ -14159,8 +14160,10 @@ shopify-payment-terms {
 }
 
 .product-meta__variant-description-content {
+  font-family: var(--text-font-family);
   line-height: 1.6;
-  font-size: 0.95em;
+  font-size: 14px;
+  color: var(--text-color);
 }
 
 
