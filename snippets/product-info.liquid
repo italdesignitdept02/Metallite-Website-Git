@@ -51,10 +51,6 @@
                   </div>
                 </div>
               {%- else -%}
-                {%- if block.settings.title != blank -%}
-                  <span class="product-meta__variant-description-title heading" style="margin-bottom: 0;">{{ block.settings.title | escape }}</span>
-                {%- endif -%}
-
                 <div class="product-specs-grid">
                   <div class="product-spec-item {% if dim_stripped == blank %}is-hidden{% endif %}" data-spec-type="dimension">
                     <span class="product-spec-label">Dimension</span>
