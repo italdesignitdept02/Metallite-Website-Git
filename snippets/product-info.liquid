@@ -249,32 +249,31 @@
       }
 
       // Handle Dimensions & Materials (2-column grid)
-      const dimContainer = document.querySelector('.product-meta__dimensions-container');
-      if (dimContainer) {
+      const dimItems = document.querySelectorAll('.product-meta__dimensions-container');
+      dimItems.forEach(container => {
         const dimVal = (productData.variant_dimensions && productData.variant_dimensions[variant.id]) ? productData.variant_dimensions[variant.id] : productData.product_dimensions;
         const matVal = (productData.variant_materials && productData.variant_materials[variant.id]) ? productData.variant_materials[variant.id] : productData.product_materials;
 
-        const dimContents = document.querySelectorAll('.product-meta__dimensions-content');
-        const matContents = document.querySelectorAll('.product-meta__material-content');
+        const dimContents = container.querySelectorAll('.product-meta__dimensions-content');
+        const matContents = container.querySelectorAll('.product-meta__material-content');
         
-        const dimWrapper = document.querySelector('[data-spec-type="dimension"]');
-        const matWrapper = document.querySelector('[data-spec-type="material"]');
+        const dimWrapper = container.querySelector('[data-spec-type="dimension"]');
+        const matWrapper = container.querySelector('[data-spec-type="material"]');
 
         updateSyncField(dimWrapper, dimContents, dimVal);
         updateSyncField(matWrapper, matContents, matVal);
 
-        // Hide entire container if both are empty
         if ((!dimVal || dimVal === "") && (!matVal || matVal === "")) {
-          dimContainer.classList.add('is-hidden');
+          container.classList.add('is-hidden');
         } else {
-          dimContainer.classList.remove('is-hidden');
+          container.classList.remove('is-hidden');
         }
-      }
+      });
 
       function updateSyncField(wrapper, contentAreas, value) {
-        if (value && value.trim() !== "") {
+        if (value && String(value).trim() !== "") {
           contentAreas.forEach(area => {
-            area.innerHTML = value.replace(/\n/g, '<br>');
+            area.innerHTML = String(value).replace(/\n/g, '<br>');
           });
           if(wrapper) wrapper.classList.remove('is-hidden');
         } else {
