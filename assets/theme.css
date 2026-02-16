@@ -14209,28 +14209,3 @@ shopify-payment-terms {
     gap: 15px;
   }
 }
-
-/* Custom: Remove borders and table styling from description tables */
-.product-block-list__item--description .rte table,
-.product-block-list__item--description .rte tbody,
-.product-block-list__item--description .rte tr,
-.product-block-list__item--description .rte td {
-  display: block !important;
-  width: 100% !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Custom: Remove border and background from the product description block */
-.product-block-list__item--description .card {
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-.product-block-list__item--description .card__header,
-.product-block-list__item--description .card__section {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
