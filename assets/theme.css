@@ -14209,3 +14209,16 @@ shopify-payment-terms {
     gap: 15px;
   }
 }
+
+/* Custom: Remove border and background from the product description block */
+.product-block-list__item--description .card {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.product-block-list__item--description .card__header,
+.product-block-list__item--description .card__section {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
