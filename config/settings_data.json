@@ -84,7 +84,7 @@
         "settings": {
           "enable_sticky_header": true,
           "logo": "shopify://shop_images/Metallitelogo-removebg-preview.png",
-          "logo_max_width": 275,
+          "logo_max_width": 200,
           "mobile_logo_max_width": 100,
           "show_locale_selector": true,
           "show_currency_selector": true,
