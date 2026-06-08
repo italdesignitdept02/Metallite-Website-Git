@@ -276,7 +276,7 @@
               {%- else -%}
                 <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.login' | t }}</span>
               {%- endif -%}
-
+              
               <div class="header__action-item-content">
                 <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="header__action-item-link header__account-icon icon-state hidden-desk" aria-label="{{ 'header.general.account' | t }}" aria-controls="account-popover" aria-expanded="false" data-action="toggle-popover" {% if customer %}data-follow-link="phone"{% endif %}>
                   <span class="icon-state__primary">{%- render 'icon', icon: 'account' -%}</span>
